@@ -7,12 +7,14 @@ public class Course {
     private String courseName;
     private int courseCredit;
     private ArrayList<Student> studentList;
+//    private ArrayList<studentEnrolment> studentEnrolmentArrayList;
 
     public Course(String courseID, String courseName, int courseCredit) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.courseCredit = courseCredit;
         this.studentList = new ArrayList<Student>();
+//        this.studentEnrolmentArrayList = new ArrayList<studentEnrolment>();
     }
 
     public String getCourseID() {
@@ -47,6 +49,15 @@ public class Course {
         this.studentList = studentList;
     }
 
+//    public ArrayList<studentEnrolment> getStudentEnrolmentArrayList() {
+//        return studentEnrolmentArrayList;
+//    }
+//
+//    public void setStudentEnrolmentArrayList(ArrayList<studentEnrolment> studentEnrolmentArrayList) {
+//        this.studentEnrolmentArrayList = studentEnrolmentArrayList;
+//    }
+
+
 // enroll student
 
     public boolean enroll(Student student){
@@ -54,19 +65,10 @@ public class Course {
             return false;
         }
         studentList.add(student);
-//        student.getCourseList().add(this);
         student.getCourseList().add(this);
         return true;
     }
 
-
-
-//    public String courseData(){
-//        return "Course{ " +
-//                "courseName= " + courseName +'\'' + ", courseID='" + courseID + '\''
-//                + ", Course credit point='" + courseCredit +'\''+
-//                '}';
-//    }
 
     @Override
     public String toString() {

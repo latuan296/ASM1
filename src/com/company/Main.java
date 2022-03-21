@@ -9,8 +9,8 @@ public class Main {
         c1.enroll(s1);
 
 //        System.out.println(s1.getCourseList());
-        System.out.println(c1.getStudentList());
-        System.out.println(s1.getCourseList());
+//        System.out.println(c1.getStudentList());
+//        System.out.println(s1.getCourseList());
 
     }
 }

@@ -8,12 +8,14 @@ public class Student {
     private String studentName;
     private String studentBirthdate;
     private ArrayList<Course> courseList;
+//    private ArrayList<studentEnrolment> studentEnrolmentArrayList;
 
     public Student(String studentID, String studentName, String studentBirthdate) {
         this.studentID = studentID;
         this.studentName = studentName;
         this.studentBirthdate = studentBirthdate;
         this.courseList = new ArrayList<Course>();
+//        this.studentEnrolmentArrayList = new ArrayList<studentEnrolment>();
     }
 
     public String getStudentID() {
@@ -48,14 +50,16 @@ public class Student {
         this.courseList = courseList;
     }
 
-    //    get student data
-
-//    public String studentData(){
-//        return "Student{ " +
-//                "studentName= " + studentName +'\'' + ", studentID='" + studentID + '\''
-//                + ", studentBirthdate='" + studentBirthdate +'\''+
-//                '}';
+//    public ArrayList<studentEnrolment> getStudentEnrolmentArrayList() {
+//        return studentEnrolmentArrayList;
 //    }
+//
+//    public void setStudentEnrolmentArrayList(ArrayList<studentEnrolment> studentEnrolmentArrayList) {
+//        this.studentEnrolmentArrayList = studentEnrolmentArrayList;
+//    }
+
+
+    //    get student data
 
     @Override
     public String toString() {
@@ -63,7 +67,6 @@ public class Student {
                 "studentID='" + studentID + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", studentBirthdate='" + studentBirthdate + '\'' +
-
                 '}';
     }
 }
