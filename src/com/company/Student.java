@@ -7,11 +7,13 @@ public class Student {
     private String studentID;
     private String studentName;
     private String studentBirthdate;
+    private ArrayList<Course> courseList;
 
     public Student(String studentID, String studentName, String studentBirthdate) {
         this.studentID = studentID;
         this.studentName = studentName;
         this.studentBirthdate = studentBirthdate;
+        this.courseList = new ArrayList<Course>();
     }
 
     public String getStudentID() {
@@ -36,5 +38,32 @@ public class Student {
 
     public void setStudentBirthdate(String studentBirthdate) {
         this.studentBirthdate = studentBirthdate;
+    }
+
+    public ArrayList<Course> getCourseList() {
+        return courseList;
+    }
+
+    public void setCourseList(ArrayList<Course> courseList) {
+        this.courseList = courseList;
+    }
+
+    //    get student data
+
+//    public String studentData(){
+//        return "Student{ " +
+//                "studentName= " + studentName +'\'' + ", studentID='" + studentID + '\''
+//                + ", studentBirthdate='" + studentBirthdate +'\''+
+//                '}';
+//    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentID='" + studentID + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", studentBirthdate='" + studentBirthdate + '\'' +
+
+                '}';
     }
 }
