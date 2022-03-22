@@ -77,9 +77,14 @@ public class studentEnrolment {
     }
 
 
-
-    public void addStudent(Student student){
-        studentList.add(student);
+    public boolean addStudent(Student student){
+        if (studentList.contains(student)){
+            return false;
+        }
+        else{
+            studentList.add(student);
+            return true;
+        }
     }
 
     public boolean enroll(Student student, Course course){
@@ -91,6 +96,13 @@ public class studentEnrolment {
             return true;
         }
     }
+
+//    public Student getOne(Student student){
+//        if (studentList.contains(student.getStudentID())){
+//            return student;
+//        }
+//
+//    }
 
     @Override
     public String toString() {

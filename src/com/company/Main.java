@@ -13,11 +13,17 @@ public class Main {
 
 //        e1.addStudent(s1);
 //        System.out.println(e1.getStudentList());
-        c1.enroll(s1);
-        e1.enroll(s1,c1);
-        e1.enroll(s1,c1);
-        e1.enroll(s2,c1);
-        System.out.println(e1.getEnrolmentArrayList());
+//        c1.enroll(s1);
+//        e1.enroll(s1,c1);
+//        e1.enroll(s1,c1);
+//        e1.enroll(s2,c1);
+//        System.out.println(e1.getEnrolmentArrayList());
+
+//        e1.addStudent(s1);
+//        e1.addStudent(s1);
+//        e1.addStudent(s2);
+//        System.out.println(e1.getStudentList());
+
 
 
 
