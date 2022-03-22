@@ -19,10 +19,10 @@ public class Main {
 //        e1.enroll(s2,c1);
 //        System.out.println(e1.getEnrolmentArrayList());
 
-//        e1.addStudent(s1);
-//        e1.addStudent(s1);
-//        e1.addStudent(s2);
-//        System.out.println(e1.getStudentList());
+        e1.addStudent(s1);
+        e1.addStudent(s1);
+        e1.addStudent(s2);
+        System.out.println(e1.getStudentList());
 
 
 
