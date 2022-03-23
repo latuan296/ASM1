@@ -97,12 +97,21 @@ public class studentEnrolment {
         }
     }
 
-//    public Student getOne(Student student){
-//        if (studentList.contains(student.getStudentID())){
-//            return student;
-//        }
-//
-//    }
+
+
+    public String getOne(Student student, Course course){
+        String result = null;
+        for (int i = 0; i < EnrolmentArrayList.size(); i++) {
+            if (EnrolmentArrayList.get(i).contains(student.getStudentName() + course.getCourseName())){
+                result = EnrolmentArrayList.get(i);
+                break;
+            }
+            else{result = "Not Found";}
+        }
+        return result;
+    }
+
+
 
     @Override
     public String toString() {
