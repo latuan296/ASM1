@@ -31,13 +31,16 @@ public class Main {
 //  ENROLL STUDENT TO STUDENT ENROLMENT
 
         e1.enroll(s1,c1);
+        e1.enroll(s1,c1);
         e1.enroll(s1,c2);
         e1.enroll(s1,c2);
+        e1.enroll(s2,c1);
 
-//        System.out.println(e1.getEnrolmentArrayList());
+        System.out.println(e1.getEnrolmentArrayList());
+
 
 //  GET ONE FUNCTION
-        System.out.println(e1.getOne(s1,c1));
+//        System.out.println(e1.getOne(s1,c1));
 
 
 
