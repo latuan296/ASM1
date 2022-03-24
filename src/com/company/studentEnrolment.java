@@ -9,9 +9,8 @@ public class studentEnrolment {
     private String Semester;
     private Student student;
     private Course course;
-//    private ArrayList<String> EnrolmentArrayList;
     private ArrayList<Student> studentList;
-    private ArrayList<String> courseList;
+    private ArrayList<Course> courseList;
     private HashMap<String,String> EnrolmentArrayList;
 //    private ArrayList<String> studentCourse;
 
@@ -19,6 +18,11 @@ public class studentEnrolment {
 
 // CONSTRUCTOR
     public studentEnrolment(){
+        this.student = student;
+        this.course = course;
+        this.EnrolmentArrayList = new HashMap<String, String>();
+        this.studentList = new ArrayList<Student>();
+        this.courseList = new ArrayList<Course>();
     }
 
     public studentEnrolment(String semester, Student student, Course course) {
@@ -27,7 +31,7 @@ public class studentEnrolment {
         this.course = course;
         this.EnrolmentArrayList = new HashMap<String, String>();
         this.studentList = new ArrayList<Student>();
-        this.courseList = new ArrayList<String>();
+        this.courseList = new ArrayList<Course>();
 
     }
 
@@ -65,11 +69,11 @@ public class studentEnrolment {
         this.studentList = studentList;
     }
 
-    public ArrayList<String> getCourseList() {
+    public ArrayList<Course> getCourseList() {
         return courseList;
     }
 
-    public void setCourseList(ArrayList<String> courseList) {
+    public void setCourseList(ArrayList<Course> courseList) {
         this.courseList = courseList;
     }
 
@@ -85,7 +89,6 @@ public class studentEnrolment {
 
     //    Interface
     //    STUDENT LIST
-
     public boolean addStudent(Student student){
         if (studentList.contains(student)){
             return false;
@@ -98,15 +101,16 @@ public class studentEnrolment {
 
 
 //   COURSE LIST
-//    public boolean addCourse(Course course){
-//        if (courseList.contains(course)){
-//            return false;
-//        }
-//        else{
-//           courseList.add(course);
-//           return true;
-//        }
-//    }
+    public boolean addCourse(Course course){
+        if (courseList.contains(course)){
+            return false;
+        }
+        else{
+           courseList.add(course);
+           return true;
+        }
+    }
+
 
 
 // Enroll student & Course
@@ -117,10 +121,32 @@ public class studentEnrolment {
             return EnrolmentArrayList;
         }
         else{
-            EnrolmentArrayList.put(student.getStudentID(),course.getCourseName());
+            EnrolmentArrayList.put(student.getStudentID()," " + course.getCourseName());
             return EnrolmentArrayList;
         }
     }
+
+//    Update Student
+
+    public boolean updateStudent(String idStudent,int a,String update){
+        if (a == 1){
+            for (Student i: studentList)
+                if (i.getStudentID().equals(idStudent)){
+                    i.setStudentName(update);
+                    return true;
+                }
+        }
+        if (a==2){
+            for (Student i: studentList)
+                if (i.getStudentID().equals(idStudent)){
+                    i.setStudentBirthdate(update);
+                    return true;
+                }
+        }
+        return false;
+    }
+
+
 
 
 

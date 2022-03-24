@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -8,22 +11,25 @@ public class Main {
         Course c1 = new Course("COSC2440", "Further Programming",12);
         Course c2 = new Course("SYS1244","MATH", 12);
         Course c3 = new Course("SYS999","SEPM",12);
-        studentEnrolment e1 = new studentEnrolment("SEM1",s1,c1);
-//        studentEnrolment e1 = new studentEnrolment();
+//        studentEnrolment e1 = new studentEnrolment("SEM1",s1,c1);
+        studentEnrolment e1 = new studentEnrolment();
+        Student studentSystem = new Student();
 
 
 
 //        ADD STUDENT LIST
-
-//        e1.addStudent(s1);
-//        e1.addStudent(s1);
-//        e1.addStudent(s2);
+        e1.addStudent(s1);
+        e1.addStudent(s1);
+        e1.addStudent(s2);
 //        System.out.println(e1.getStudentList());
 
+
+
 //        ADD COURSE
-//        e1.addCourse(c1);
-//        e1.addCourse(c2);
-//        e1.addCourse(c2);
+
+        e1.addCourse(c1);
+        e1.addCourse(c2);
+        e1.addCourse(c2);
 //        System.out.println(e1.getCourseList());
 
 
@@ -35,11 +41,15 @@ public class Main {
         e1.enroll(s2,c1);
         e1.enroll(s2,c2);
         e1.enroll(s2,c3);
-//        e1.enroll(s1,c2);
-//        e1.enroll(s1,c2);
-//        e1.enroll(s2,c1);
+//        System.out.println(e1.getEnrolmentArrayList());
 
-        System.out.println(e1.getEnrolmentArrayList());
+
+//  Update student
+        Scanner scanner = new Scanner(System.in);
+        e1.updateStudent("s3836290",1,"123");
+        System.out.println(e1.getStudentList());
+
+
 
 
 //  GET ONE FUNCTION

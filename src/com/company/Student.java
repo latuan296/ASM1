@@ -8,13 +8,22 @@ public class Student {
     private String studentName;
     private String studentBirthdate;
     private ArrayList<Course> courseList;
+//    private ArrayList<Student> studentList;
 //    private ArrayList<studentEnrolment> studentEnrolmentArrayList;
+
+    public Student(){
+        this.studentID = "Default";
+        this.studentName = "Default";
+        this.studentBirthdate = "Default";
+//        this.studentList = new ArrayList<Student>();
+    }
 
     public Student(String studentID, String studentName, String studentBirthdate) {
         this.studentID = studentID;
         this.studentName = studentName;
         this.studentBirthdate = studentBirthdate;
         this.courseList = new ArrayList<Course>();
+//        this.studentList = new ArrayList<Student>();
 //        this.studentEnrolmentArrayList = new ArrayList<studentEnrolment>();
     }
 
@@ -50,23 +59,23 @@ public class Student {
         this.courseList = courseList;
     }
 
-//    public ArrayList<studentEnrolment> getStudentEnrolmentArrayList() {
-//        return studentEnrolmentArrayList;
+//    public ArrayList<Student> getStudentList() {
+//        return studentList;
 //    }
 //
-//    public void setStudentEnrolmentArrayList(ArrayList<studentEnrolment> studentEnrolmentArrayList) {
-//        this.studentEnrolmentArrayList = studentEnrolmentArrayList;
+//    public void setStudentList(ArrayList<Student> studentList) {
+//        this.studentList = studentList;
 //    }
 
 
     //    get student data
-
     @Override
     public String toString() {
-        return "Student{" +
-                "studentID='" + studentID + '\'' +
+        return "studentID='" + studentID + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", studentBirthdate='" + studentBirthdate + '\'' +
-                '}' + '\n';
+                '}';
     }
+
 }
+
