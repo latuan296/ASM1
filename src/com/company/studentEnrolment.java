@@ -11,9 +11,10 @@ public class studentEnrolment {
     private Course course;
 //    private ArrayList<String> EnrolmentArrayList;
     private ArrayList<Student> studentList;
-    private ArrayList<Course> courseList;
+    private ArrayList<String> courseList;
+    private HashMap<String,String> EnrolmentArrayList;
+//    private ArrayList<String> studentCourse;
 
-    private HashMap<String,String> EnrolmentArrayList = new HashMap<String,String>();
 
 
 // CONSTRUCTOR
@@ -24,9 +25,9 @@ public class studentEnrolment {
         Semester = semester;
         this.student = student;
         this.course = course;
-//        this.EnrolmentArrayList = new ArrayList<String>();
+        this.EnrolmentArrayList = new HashMap<String, String>();
         this.studentList = new ArrayList<Student>();
-        this.courseList = new ArrayList<Course>();
+        this.courseList = new ArrayList<String>();
 
     }
 
@@ -56,14 +57,6 @@ public class studentEnrolment {
         this.course = course;
     }
 
-//    public ArrayList<String> getEnrolmentArrayList() {
-//        return EnrolmentArrayList;
-//    }
-//
-//    public void setEnrolmentArrayList(ArrayList<String> enrolmentArrayList) {
-//        EnrolmentArrayList = enrolmentArrayList;
-//    }
-
     public ArrayList<Student> getStudentList() {
         return studentList;
     }
@@ -72,25 +65,27 @@ public class studentEnrolment {
         this.studentList = studentList;
     }
 
-    public ArrayList<Course> getCourseList() {
+    public ArrayList<String> getCourseList() {
         return courseList;
     }
 
-    public void setCourseList(ArrayList<Course> courseList) {
+    public void setCourseList(ArrayList<String> courseList) {
         this.courseList = courseList;
     }
 
-    public HashMap<String, String> getEnrolmentArrayList() {
+    public HashMap<String,String> getEnrolmentArrayList() {
         return EnrolmentArrayList;
     }
 
-    public void setEnrolmentArrayList(HashMap<String, String> enrolmentArrayList) {
+    public void setEnrolmentArrayList(HashMap<String,String> enrolmentArrayList) {
         EnrolmentArrayList = enrolmentArrayList;
     }
 
 
 
     //    Interface
+    //    STUDENT LIST
+
     public boolean addStudent(Student student){
         if (studentList.contains(student)){
             return false;
@@ -102,9 +97,29 @@ public class studentEnrolment {
     }
 
 
+//   COURSE LIST
+//    public boolean addCourse(Course course){
+//        if (courseList.contains(course)){
+//            return false;
+//        }
+//        else{
+//           courseList.add(course);
+//           return true;
+//        }
+//    }
+
+
+// Enroll student & Course
     public HashMap enroll(Student student,Course course){
-        EnrolmentArrayList.put(student.getStudentID(),course.getCourseName());
-        return EnrolmentArrayList;
+        if (EnrolmentArrayList.containsKey(student.getStudentID())){
+            String value = EnrolmentArrayList.get(student.getStudentID()) + ", "+ course.getCourseName();
+            EnrolmentArrayList.put(student.getStudentID(),value);
+            return EnrolmentArrayList;
+        }
+        else{
+            EnrolmentArrayList.put(student.getStudentID(),course.getCourseName());
+            return EnrolmentArrayList;
+        }
     }
 
 

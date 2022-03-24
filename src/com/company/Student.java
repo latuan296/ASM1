@@ -67,6 +67,6 @@ public class Student {
                 "studentID='" + studentID + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", studentBirthdate='" + studentBirthdate + '\'' +
-                '}';
+                '}' + '\n';
     }
 }
