@@ -115,7 +115,7 @@ public class studentEnrolment {
 
 // Enroll student & Course
     public HashMap enroll(Student student,Course course){
-        if (EnrolmentArrayList.containsKey(student.getStudentID())){
+        if (EnrolmentArrayList.containsKey(student.getStudentID()) && !EnrolmentArrayList.containsValue(course.getCourseID())){
             String value = EnrolmentArrayList.get(student.getStudentID()) + ", "+ course.getCourseName();
             EnrolmentArrayList.put(student.getStudentID(),value);
             return EnrolmentArrayList;

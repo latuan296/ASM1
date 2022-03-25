@@ -36,18 +36,26 @@ public class Main {
 
 //  ENROLL STUDENT TO STUDENT ENROLMENT
 
+
+//        check it again duplicate course
+//        e1.enroll(s1,c1);
+
+
         e1.enroll(s1,c1);
         e1.enroll(s1,c2);
-        e1.enroll(s2,c1);
-        e1.enroll(s2,c2);
-        e1.enroll(s2,c3);
-//        System.out.println(e1.getEnrolmentArrayList());
+//        e1.enroll(s2,c1);
+//        e1.enroll(s2,c2);
+//        e1.enroll(s2,c3);
+//        e1.enroll(s1,c3);
+        System.out.println(e1.getEnrolmentArrayList());
+
+//        System.out.println(e1.getEnrolmentArrayList().get(s1.getStudentID()));
 
 
 //  Update student
         Scanner scanner = new Scanner(System.in);
         e1.updateStudent("s3836290",1,"123");
-        System.out.println(e1.getStudentList());
+//        System.out.println(e1.getStudentList());
 
 
 
