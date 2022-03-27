@@ -11,7 +11,10 @@ public class studentEnrolment {
     private Course course;
     private ArrayList<Student> studentList;
     private ArrayList<Course> courseList;
-    private HashMap<String,String> EnrolmentArrayList;
+    private HashMap<String,String> EnrolmentList;
+    private HashMap<String,HashMap> finalEnrollList;
+
+
 //    private ArrayList<String> studentCourse;
 
 
@@ -20,16 +23,17 @@ public class studentEnrolment {
     public studentEnrolment(){
         this.student = student;
         this.course = course;
-        this.EnrolmentArrayList = new HashMap<String, String>();
+        this.EnrolmentList = new HashMap<String, String>();
         this.studentList = new ArrayList<Student>();
         this.courseList = new ArrayList<Course>();
+        this.finalEnrollList = new HashMap<String, HashMap>();
     }
 
     public studentEnrolment(String semester, Student student, Course course) {
         Semester = semester;
         this.student = student;
         this.course = course;
-        this.EnrolmentArrayList = new HashMap<String, String>();
+        this.EnrolmentList = new HashMap<String, String>();
         this.studentList = new ArrayList<Student>();
         this.courseList = new ArrayList<Course>();
 
@@ -77,14 +81,21 @@ public class studentEnrolment {
         this.courseList = courseList;
     }
 
-    public HashMap<String,String> getEnrolmentArrayList() {
-        return EnrolmentArrayList;
+    public HashMap<String,String> getEnrolmentList() {
+        return EnrolmentList;
     }
 
-    public void setEnrolmentArrayList(HashMap<String,String> enrolmentArrayList) {
-        EnrolmentArrayList = enrolmentArrayList;
+    public void setEnrolmentList(HashMap<String,String> enrolmentList) {
+        EnrolmentList = enrolmentList;
     }
 
+    public HashMap<String, HashMap> getFinalEnrollList() {
+        return finalEnrollList;
+    }
+
+    public void setFinalEnrollList(HashMap<String, HashMap> finalEnrollList) {
+        this.finalEnrollList = finalEnrollList;
+    }
 
 
     //    Interface
@@ -114,22 +125,36 @@ public class studentEnrolment {
 
 
 // Enroll student & Course
-    public HashMap enroll(Student student,Course course){
-        String oldValue = EnrolmentArrayList.get(student.getStudentID());
+    public String enroll(Student student,Course course,String semester){
+        String oldValue = EnrolmentList.get(student.getStudentID());
         String newCourse = course.getCourseName();
-        if (EnrolmentArrayList.containsKey(student.getStudentID()) && oldValue.contains(newCourse)){
-            return EnrolmentArrayList;
+
+        if (finalEnrollList.containsKey(semester)){
+
+            if (EnrolmentList.containsKey(student.getStudentID()) && oldValue.contains(newCourse)){
+                return "You already enroll before";
+            }
+            else if (EnrolmentList.containsKey(student.getStudentID())){
+                String value = oldValue +", " +newCourse;
+                EnrolmentList.put(student.getStudentID(),value);
+            }
+            else {
+                EnrolmentList.put(student.getStudentID(),course.getCourseName());
+            }
+
+            finalEnrollList.put(semester,EnrolmentList);
+            return "Success";
         }
-        else if (EnrolmentArrayList.containsKey(student.getStudentID())){
-            String value = oldValue +", " +newCourse;
-            EnrolmentArrayList.put(student.getStudentID(),value);
-            return EnrolmentArrayList;
+
+        else {
+            HashMap<String,String> newList = new HashMap<>();
+            newList.put(student.getStudentID(),newCourse);
+            finalEnrollList.put(semester,newList);
+            return "Success";
         }
-        else{
-            EnrolmentArrayList.put(student.getStudentID(),course.getCourseName());
-            return EnrolmentArrayList;
-        }
+
     }
+
 
 //    Update Student
 
@@ -150,8 +175,6 @@ public class studentEnrolment {
         }
         return false;
     }
-
-
 
 
 

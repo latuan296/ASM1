@@ -37,20 +37,22 @@ public class Main {
 //  ENROLL STUDENT TO STUDENT ENROLMENT
 
 
-//        check it again duplicate course
-//        e1.enroll(s1,c1);
+        e1.enroll(s1,c1,"2020A");
+        e1.enroll(s1,c1,"2020A");
+        e1.enroll(s2,c1,"2020A");
+        e1.enroll(s1,c2,"2020A");
+//
+        e1.enroll(s2,c3,"2021A");
+        e1.enroll(s2,c3,"2021A");
+//
+        e1.enroll(s1,c1,"2022A");
+//        e1.enroll(s1,c1,"2023A");
+//        e1.enroll(s2,c2,"2023A");
 
 
-        e1.enroll(s1,c1);
-        e1.enroll(s1,c1);
-        e1.enroll(s1,c2);
-        e1.enroll(s2,c1);
-        e1.enroll(s2,c2);
-        e1.enroll(s2,c1);
-        e1.enroll(s1,c3);
 
+        System.out.println(e1.getFinalEnrollList());
 
-        System.out.println(e1.getEnrolmentArrayList());
 
 
 //  Update student
