@@ -46,6 +46,7 @@ public class Main {
         e1.enroll(s1,c2);
         e1.enroll(s2,c1);
         e1.enroll(s2,c2);
+        e1.enroll(s2,c1);
         e1.enroll(s1,c3);
 
 
@@ -53,10 +54,10 @@ public class Main {
 
 
 //  Update student
-        Scanner scanner = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
 //        System.out.print("Input 1 to update name and 2 to update DOB: ");
 //        int a = scanner.nextInt();
-        e1.updateStudent("s3836290",2,"123");
+//        e1.updateStudent("s3836290",2,"123");
 //        System.out.println(e1.getStudentList());
 
 

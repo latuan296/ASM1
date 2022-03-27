@@ -115,13 +115,18 @@ public class studentEnrolment {
 
 // Enroll student & Course
     public HashMap enroll(Student student,Course course){
-        if (EnrolmentArrayList.containsKey(student.getStudentID())){
-            String value = EnrolmentArrayList.get(student.getStudentID()) + ", "+ course.getCourseName();
+        String oldValue = EnrolmentArrayList.get(student.getStudentID());
+        String newCourse = course.getCourseName();
+        if (EnrolmentArrayList.containsKey(student.getStudentID()) && oldValue.contains(newCourse)){
+            return EnrolmentArrayList;
+        }
+        else if (EnrolmentArrayList.containsKey(student.getStudentID())){
+            String value = oldValue +", " +newCourse;
             EnrolmentArrayList.put(student.getStudentID(),value);
             return EnrolmentArrayList;
         }
         else{
-            EnrolmentArrayList.put(student.getStudentID()," " + course.getCourseName());
+            EnrolmentArrayList.put(student.getStudentID(),course.getCourseName());
             return EnrolmentArrayList;
         }
     }
@@ -136,7 +141,7 @@ public class studentEnrolment {
                     return true;
                 }
         }
-        if (a==2){
+        else if (a == 2){
             for (Student i: studentList)
                 if (i.getStudentID().equals(idStudent)){
                     i.setStudentBirthdate(update);
