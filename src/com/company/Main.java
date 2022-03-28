@@ -80,9 +80,9 @@ public class Main {
 ////  Get one Student in semester
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.print("Input student ID: ");
-//        String studentID = scanner.next();
+//        String studentID = scanner.nextLine();
 //        System.out.print("Input semester: ");
-//        String semester = scanner.next();
+//        String semester = scanner.nextLine();
 //        System.out.println(systemDisplay.getOne(studentID,semester));
 
 
@@ -90,9 +90,9 @@ public class Main {
 //        System.out.println("Input follow structure to get student data");
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.print("Input semester : ");
-//        String semester = scanner.next();
+//        String semester = scanner.nextLine();
 //        System.out.print("Input courseID: ");
-//        String courseID = scanner.next();
+//        String courseID = scanner.nextLine();
 //        System.out.println(systemDisplay.studentsInCourse(semester,courseID));
 
 
@@ -106,17 +106,20 @@ public class Main {
 //        String studentName = scanner.nextLine();
 //
 //        System.out.print("Input student ID: ");
-//        String studentID = scanner.next();
+//        String studentID = scanner.nextLine();
 //
 //        System.out.print("Input semester want to delete: ");
-//        String semester = scanner.next();
+//        String semester = scanner.nextLine();
+//
+//        System.out.print("Input course name to delete: ");
+//        String courseName = scanner.nextLine();
 //
 //        System.out.print("Input course ID to delete: ");
-//        String courseID = scanner.next();
+//        String courseID = scanner.nextLine();
 //
-//        System.out.println(systemDisplay.deleteCourse(studentName,studentID,semester,courseID));
-        System.out.println(systemDisplay.deleteCourse("Le Anh Tuan","s3836290","2020A","Further Programming","6666"));
-        System.out.println(systemDisplay.getEnrollList());
+//        System.out.println(systemDisplay.deleteCourse(studentName,studentID,semester,courseName,courseID));
+//        System.out.println(systemDisplay.deleteCourse("Le Anh Tuan","s3836290","2020A","Further Programming","6666"));
+//        System.out.println(systemDisplay.getEnrollList());
 
 
 

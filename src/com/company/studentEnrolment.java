@@ -220,27 +220,43 @@ public class studentEnrolment {
         }
     }
 
+////  Get all course in one semester
+//    public ArrayList<String> courseInSem(String semester, String courseName, String courseID){
+//        ArrayList<String> outputData = new ArrayList<String>();
+//        String result = null;
+//        String courseForm = " CourseID: " +courseID + " CourseName: " + courseName;
+//        if (EnrollList.containsKey(semester)){
+//            HashMap<String, String> courseData = EnrollList.get(semester);
+//
+//        }
+//        else {
+//            result = "Can not found semester [" + semester + "] in system data";
+//            outputData.add(result);
+//            return outputData;
+//        }
+//    }
+
 //   Delete function
     public String deleteCourse(String studentName,String studentID, String semester,String courseName,String courseID){
         String result = null;
         String key = "Student name: " + studentName + ", StudentID: " +studentID;
+        String deleteValue = " CourseID: " +courseID + " CourseName: " + courseName;
         if (EnrollList.containsKey(semester)){
             if (EnrollList.get(semester).containsKey(key)){
                 HashMap <String,String> semesterData = EnrollList.get(semester);
-                if (semesterData.get(key).contains(courseID)){
-                    String deleteValue = " CourseID: " +courseID + " CourseName: " + courseName;
+                if (semesterData.get(key).contains(deleteValue)){
                     String newValue = semesterData.get(key).replace(deleteValue,"");
                     EnrollList.get(semester).put(key,newValue);
                     result = "Delete course success";
                     return result;
                 }
                 else {
-                    result = "Can not found courseID [" + courseID +"] in semester " + semester;
+                    result = "Wrong course data input";
                     return result;
                 }
             }
             else{
-                result = "Wrong student input";
+                result = "Wrong student data input";
                 return result;
             }
         }
@@ -249,9 +265,6 @@ public class studentEnrolment {
             return result;
         }
     }
-
-
-
 
     @Override
     public String toString() {
