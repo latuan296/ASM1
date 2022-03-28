@@ -11,63 +11,83 @@ public class Main {
         Course c1 = new Course("COSC2440", "Further Programming",12);
         Course c2 = new Course("SYS1244","MATH", 12);
         Course c3 = new Course("SYS999","SEPM",12);
-//        studentEnrolment e1 = new studentEnrolment("SEM1",s1,c1);
-        studentEnrolment e1 = new studentEnrolment();
-        Student studentSystem = new Student();
+        studentEnrolment systemDisplay = new studentEnrolment();
+//        Student studentSystem = new Student();
 
 
 
 //        ADD STUDENT LIST
-        e1.addStudent(s1);
-        e1.addStudent(s1);
-        e1.addStudent(s2);
+        systemDisplay.addStudent(s1);
+        systemDisplay.addStudent(s1);
+        systemDisplay.addStudent(s2);
 //        System.out.println(e1.getStudentList());
 
 
 
 //        ADD COURSE
-
-        e1.addCourse(c1);
-        e1.addCourse(c2);
-        e1.addCourse(c2);
-//        System.out.println(e1.getCourseList());
+        systemDisplay.addCourse(c1);
+        systemDisplay.addCourse(c2);
+        systemDisplay.addCourse(c2);
+        systemDisplay.addCourse(c3);
+//        System.out.println(systemDisplay.getCourseList());
 
 
 
 //  ENROLL STUDENT TO STUDENT ENROLMENT
-//  sem 2020A
-        e1.enroll(s1,c1,"2020A");
-        e1.enroll(s1,c1,"2020A");
-        e1.enroll(s1,c2,"2020A");
-
-        e1.enroll(s2,c1,"2020A");
-        e1.enroll(s2,c3,"2020A");
-        e1.enroll(s2,c3,"2020A");
-
-//  sem 2021B
-        e1.enroll(s2,c3,"2021B");
-        e1.enroll(s2,c3,"2021B");
-        e1.enroll(s2,c1,"2021B");
-        e1.enroll(s1,c1,"2021B");
-//  sem 2022C
-        e1.enroll(s1,c1,"2022C");
-        e1.enroll(s1,c1,"2022C");
-        e1.enroll(s2,c2,"2022C");
-        System.out.println(e1.enroll(s2,c1,"2022C"));
-
-
-
-
-        System.out.println(e1.getEnrollList());
+////  sem 2020A
+        systemDisplay.enroll(s1,c1,"2020A");
+//        systemDisplay.enroll(s1,c1,"2020A");
+        systemDisplay.enroll(s1,c2,"2020A");
+//
+//        systemDisplay.enroll(s2,c1,"2020A");
+//        systemDisplay.enroll(s2,c3,"2020A");
+//        systemDisplay.enroll(s2,c3,"2020A");
+//
+////  sem 2021B
+//        systemDisplay.enroll(s2,c3,"2021B");
+//        systemDisplay.enroll(s2,c3,"2021B");
+//        systemDisplay.enroll(s2,c1,"2021B");
+        systemDisplay.enroll(s1,c2,"2021B");
+////  sem 2022C
+        systemDisplay.enroll(s1,c3,"2022C");
+//        systemDisplay.enroll(s1,c1,"2022C");
+//        systemDisplay.enroll(s2,c2,"2022C");
+//        System.out.println(systemDisplay.enroll(s2,c1,"2022C"));
+//
+//
+//
+//
+//        System.out.println(systemDisplay.getEnrollList());
 
 
 
 //  Update student
 //        Scanner scanner = new Scanner(System.in);
-//        System.out.print("Input 1 to update name and 2 to update DOB: ");
+//        System.out.print("Input 1 to update name OR 2 to update DOB: ");
 //        int a = scanner.nextInt();
-//        e1.updateStudent("s3836290",2,"123");
-//        System.out.println(e1.getStudentList());
+//        systemDisplay.updateStudent("s3836290",2,"123");
+//        System.out.println(systemDisplay.getStudentList());
+
+
+////  Update course
+////        add function verify user input
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Input 1 to update course name OR 2 to update credit point: ");
+//        int a = scanner.nextInt();
+//
+//        systemDisplay.updateCourse("COSC2440",a,"123");
+//
+//
+//        System.out.println(systemDisplay.getCourseList());
+
+
+////  Get one Student in semester
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Input student ID: ");
+//        String studentID = scanner.next();
+//        System.out.print("Input semester: ");
+//        String semester = scanner.next();
+//        System.out.println(systemDisplay.getOne(studentID,semester));
 
 
 

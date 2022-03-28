@@ -11,9 +11,7 @@ public class studentEnrolment {
     private Course course;
     private ArrayList<Student> studentList;
     private ArrayList<Course> courseList;
-//    private HashMap<String,String> EnrolmentList;
     private HashMap<String,HashMap> EnrollList;
-
 
 //    private ArrayList<String> studentCourse;
 
@@ -23,7 +21,6 @@ public class studentEnrolment {
     public studentEnrolment(){
         this.student = student;
         this.course = course;
-//        this.EnrolmentList = new HashMap<String, String>();
         this.studentList = new ArrayList<Student>();
         this.courseList = new ArrayList<Course>();
         this.EnrollList = new HashMap<String, HashMap>();
@@ -33,7 +30,7 @@ public class studentEnrolment {
         Semester = semester;
         this.student = student;
         this.course = course;
-//        this.EnrolmentList = new HashMap<String, String>();
+
         this.studentList = new ArrayList<Student>();
         this.courseList = new ArrayList<Course>();
 
@@ -81,14 +78,6 @@ public class studentEnrolment {
         this.courseList = courseList;
     }
 
-//    public HashMap<String,String> getEnrolmentList() {
-//        return EnrolmentList;
-//    }
-//
-//    public void setEnrolmentList(HashMap<String,String> enrolmentList) {
-//        EnrolmentList = enrolmentList;
-//    }
-
     public HashMap<String, HashMap> getEnrollList() {
         return EnrollList;
     }
@@ -98,8 +87,8 @@ public class studentEnrolment {
     }
 
 
-    //    Interface
-    //    STUDENT LIST
+//    Interface
+//    add student list
     public boolean addStudent(Student student){
         if (studentList.contains(student)){
             return false;
@@ -110,8 +99,7 @@ public class studentEnrolment {
         }
     }
 
-
-//   COURSE LIST
+//  add course list
     public boolean addCourse(Course course){
         if (courseList.contains(course)){
             return false;
@@ -122,9 +110,7 @@ public class studentEnrolment {
         }
     }
 
-
-
-// Enroll student & Course
+// Enroll student & Course to each different semester
     public String enroll(Student student,Course course,String semester){
         String newCourse = course.getCourseName();
         if (EnrollList.containsKey(semester)){
@@ -153,9 +139,7 @@ public class studentEnrolment {
         }
     }
 
-
 //    Update Student
-
     public boolean updateStudent(String idStudent,int a,String update){
         if (a == 1){
             for (Student i: studentList)
@@ -174,19 +158,43 @@ public class studentEnrolment {
         return false;
     }
 
+//    update Course Data
+    public boolean updateCourse(String idCourse,int a,String update){
+        if (a == 1){
+            for (Course i: courseList)
+                if (i.getCourseID().equals(idCourse)){
+                    i.setCourseName(update);
+                    return true;
+                }
+        }
+        else if (a == 2){
+            int newCredit = Integer.parseInt(update);
+            for (Course i: courseList)
+                if (i.getCourseID().equals(idCourse)){
+                    i.setCourseCredit(newCredit);
+                    return true;
+                }
+        }
+        return false;
+}
 
-
-//    public String getOne(Student student, Course course){
-//        String result = null;
-//        for (int i = 0; i < EnrolmentArrayList.size(); i++) {
-//            if (EnrolmentArrayList.get(i).contains(student.getStudentName() + course.getCourseName())){
-//                result = EnrolmentArrayList.get(i);
-//                break;
-//            }
-//            else{result = "Not Found";}
-//        }
-//        return result;
-//    }
+// Get one student in one semester
+    public String getOne(String studentID, String semester){
+        String outputData = null;
+        if (EnrollList.containsKey(semester)) {
+            HashMap<String, String> studentData = EnrollList.get(semester);
+            if (studentData.containsKey(studentID)){
+                outputData = studentData.get(studentID);
+                return outputData;
+            } else
+                outputData = "Student invalid";
+                return outputData;
+        }
+        else {
+            outputData = "Semester invalid";
+            return outputData;
+        }
+    }
 
 
 
@@ -194,7 +202,6 @@ public class studentEnrolment {
     public String toString() {
         return student.getStudentName() + course.getCourseName();
     }
-
 }
 
 
