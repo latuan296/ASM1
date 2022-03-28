@@ -25,39 +25,37 @@ public class Main {
 
 
 //        ADD COURSE
-        systemDisplay.addCourse(c1);
-        systemDisplay.addCourse(c2);
-        systemDisplay.addCourse(c2);
-        systemDisplay.addCourse(c3);
+//        systemDisplay.addCourse(c1);
+//        systemDisplay.addCourse(c2);
+//        systemDisplay.addCourse(c2);
+//        systemDisplay.addCourse(c3);
 //        System.out.println(systemDisplay.getCourseList());
 
 
 
 //  ENROLL STUDENT TO STUDENT ENROLMENT
 ////  sem 2020A
-        systemDisplay.enroll(s1,c1,"2020A");
-//        systemDisplay.enroll(s1,c1,"2020A");
-        systemDisplay.enroll(s1,c2,"2020A");
+        systemDisplay.enrol(s1,c1,"2020A");
+//        systemDisplay.enrol(s1,c1,"2020A");
+        systemDisplay.enrol(s1,c2,"2020A");
 //
-//        systemDisplay.enroll(s2,c1,"2020A");
-//        systemDisplay.enroll(s2,c3,"2020A");
+        systemDisplay.enrol(s2,c1,"2020A");
+//        systemDisplay.enrol(s2,c3,"2020A");
 //        systemDisplay.enroll(s2,c3,"2020A");
 //
 ////  sem 2021B
-//        systemDisplay.enroll(s2,c3,"2021B");
-//        systemDisplay.enroll(s2,c3,"2021B");
-//        systemDisplay.enroll(s2,c1,"2021B");
-        systemDisplay.enroll(s1,c2,"2021B");
+//        systemDisplay.enrol(s2,c3,"2021B");
+//        systemDisplay.enrol(s2,c3,"2021B");
+//        systemDisplay.enrol(s2,c1,"2021B");
+        systemDisplay.enrol(s1,c2,"2021B");
 ////  sem 2022C
-        systemDisplay.enroll(s1,c3,"2022C");
-//        systemDisplay.enroll(s1,c1,"2022C");
-//        systemDisplay.enroll(s2,c2,"2022C");
-//        System.out.println(systemDisplay.enroll(s2,c1,"2022C"));
+        systemDisplay.enrol(s1,c3,"2022C");
+//        systemDisplay.enrol(s1,c1,"2022C");
+        systemDisplay.enrol(s2,c2,"2022C");
+        systemDisplay.enrol(s2,c3,"2022C");
+//        System.out.println(systemDisplay.enrol(s2,c1,"2022C"));
 //
-//
-//
-//
-//        System.out.println(systemDisplay.getEnrollList());
+        System.out.println(systemDisplay.getEnrollList());
 
 
 
@@ -76,8 +74,6 @@ public class Main {
 //        int a = scanner.nextInt();
 //
 //        systemDisplay.updateCourse("COSC2440",a,"123");
-//
-//
 //        System.out.println(systemDisplay.getCourseList());
 
 
@@ -88,6 +84,15 @@ public class Main {
 //        System.out.print("Input semester: ");
 //        String semester = scanner.next();
 //        System.out.println(systemDisplay.getOne(studentID,semester));
+
+
+////  Get all student in 1 course 1 sem
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Input semester : ");
+//        String semester = scanner.next();
+//        System.out.print("Input courseID: ");
+//        String courseID = scanner.next();
+//        System.out.println(systemDisplay.studentsInCourse(semester,courseID));
 
 
 

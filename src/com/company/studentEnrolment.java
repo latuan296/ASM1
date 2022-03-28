@@ -12,7 +12,6 @@ public class studentEnrolment {
     private ArrayList<Student> studentList;
     private ArrayList<Course> courseList;
     private HashMap<String,HashMap> EnrollList;
-
 //    private ArrayList<String> studentCourse;
 
 
@@ -23,7 +22,7 @@ public class studentEnrolment {
         this.course = course;
         this.studentList = new ArrayList<Student>();
         this.courseList = new ArrayList<Course>();
-        this.EnrollList = new HashMap<String, HashMap>();
+        this.EnrollList = new HashMap<String,HashMap>();
     }
 
     public studentEnrolment(String semester, Student student, Course course) {
@@ -35,7 +34,6 @@ public class studentEnrolment {
         this.courseList = new ArrayList<Course>();
 
     }
-
 
 // GET & SET
     public String getSemester() {
@@ -87,8 +85,8 @@ public class studentEnrolment {
     }
 
 
-//    Interface
-//    add student list
+//  Interface
+//  add student list
     public boolean addStudent(Student student){
         if (studentList.contains(student)){
             return false;
@@ -110,36 +108,37 @@ public class studentEnrolment {
         }
     }
 
-// Enroll student & Course to each different semester
-    public String enroll(Student student,Course course,String semester){
-        String newCourse = course.getCourseName();
+//  Enroll student & Course to each different semester
+    public String enrol(Student student,Course course,String semester){
+        String newCourse = " CourseID: " +course.getCourseID() + " CourseName: " + course.getCourseName();
+        String key = "Student name: " + student.getStudentName() + ", StudentID: " +student.getStudentID();
         if (EnrollList.containsKey(semester)){
             HashMap<String,String> oldData = EnrollList.get(semester);
-            String oldValue = oldData.get(student.getStudentID());
-            if (oldData.containsKey(student.getStudentID()) && oldValue.contains(newCourse)){
+            String oldValue = oldData.get(key);
+            if (oldData.containsKey(key) && oldValue.contains(newCourse)){
                 return "You already enroll before";
             }
-            else if (oldData.containsKey(student.getStudentID())){
-                String value = oldValue +", " +newCourse;
-                oldData.put(student.getStudentID(),value);
+            else if (oldData.containsKey(key)){
+                String value = oldValue +", " + newCourse;
+                oldData.put(key,value);
                 EnrollList.put(semester,oldData);
                 return "Success";
             }
             else {
-                oldData.put(student.getStudentID(),newCourse);
+                oldData.put(key,newCourse);
                 EnrollList.put(semester,oldData);
                 return "Success";
             }
         }
         else {
             HashMap<String,String> newList = new HashMap<>();
-            newList.put(student.getStudentID(),newCourse);
+            newList.put(key,newCourse);
             EnrollList.put(semester,newList);
             return "Success";
         }
     }
 
-//    Update Student
+//  Update Student
     public boolean updateStudent(String idStudent,int a,String update){
         if (a == 1){
             for (Student i: studentList)
@@ -158,7 +157,7 @@ public class studentEnrolment {
         return false;
     }
 
-//    update Course Data
+//  update Course Data
     public boolean updateCourse(String idCourse,int a,String update){
         if (a == 1){
             for (Course i: courseList)
@@ -178,7 +177,7 @@ public class studentEnrolment {
         return false;
 }
 
-// Get one student in one semester
+//  Get one student in one semester
     public String getOne(String studentID, String semester){
         String outputData = null;
         if (EnrollList.containsKey(semester)) {
@@ -196,6 +195,22 @@ public class studentEnrolment {
         }
     }
 
+//  Get all student in 1 course in 1 semester
+    public ArrayList<String> studentsInCourse(String semester, String courseID){
+        ArrayList<String> outputData = new ArrayList<String>();
+        if (EnrollList.containsKey(semester)){
+            HashMap<String, String> studentData = EnrollList.get(semester);
+            for (String i : studentData.keySet()){
+                if (studentData.get(i).contains(courseID)){
+                    outputData.add(i);
+                }
+            }
+            return outputData;
+        }
+        else {
+            return outputData;
+        }
+    }
 
 
     @Override

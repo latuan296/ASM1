@@ -7,14 +7,12 @@ public class Course {
     private String courseName;
     private int courseCredit;
     private ArrayList<Student> studentList;
-//    private ArrayList<studentEnrolment> studentEnrolmentArrayList;
 
     public Course(String courseID, String courseName, int courseCredit) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.courseCredit = courseCredit;
         this.studentList = new ArrayList<Student>();
-//        this.studentEnrolmentArrayList = new ArrayList<studentEnrolment>();
     }
 
     public String getCourseID() {
@@ -48,14 +46,6 @@ public class Course {
     public void setStudentList(ArrayList<Student> studentList) {
         this.studentList = studentList;
     }
-
-//    public ArrayList<studentEnrolment> getStudentEnrolmentArrayList() {
-//        return studentEnrolmentArrayList;
-//    }
-//
-//    public void setStudentEnrolmentArrayList(ArrayList<studentEnrolment> studentEnrolmentArrayList) {
-//        this.studentEnrolmentArrayList = studentEnrolmentArrayList;
-//    }
 
 
 // enroll student
