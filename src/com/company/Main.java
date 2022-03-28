@@ -39,9 +39,8 @@ public class Main {
         systemDisplay.enrol(s1,c1,"2020A");
 //        systemDisplay.enrol(s1,c1,"2020A");
         systemDisplay.enrol(s1,c2,"2020A");
-//
-        systemDisplay.enrol(s2,c1,"2020A");
-        systemDisplay.enrol(s2,c3,"2020A");
+//        systemDisplay.enrol(s2,c1,"2020A");
+//        systemDisplay.enrol(s2,c3,"2020A");
 //        systemDisplay.enroll(s2,c3,"2020A");
 //
 ////  sem 2021B
@@ -56,7 +55,7 @@ public class Main {
 //        systemDisplay.enrol(s2,c3,"2022C");
 //        System.out.println(systemDisplay.enrol(s2,c1,"2022C"));
 //
-//        System.out.println(systemDisplay.getEnrollList());
+        System.out.println(systemDisplay.getEnrollList());
 
 
 
@@ -80,11 +79,9 @@ public class Main {
 
 ////  Get one Student in semester
 //        Scanner scanner = new Scanner(System.in);
-//        System.out.print("Input student ID: ");
-//        String studentID = scanner.nextLine();
 //        System.out.print("Input semester: ");
 //        String semester = scanner.nextLine();
-//        System.out.println(systemDisplay.getOne(studentID,semester));
+//        System.out.println(systemDisplay.getOne(semester));
 
 
 ////  Get all student in 1 course 1 sem
@@ -124,7 +121,7 @@ public class Main {
 
 
 //  Get all courses in one sem
-        System.out.println(systemDisplay.courseInSem("2020A"));
+//        System.out.println(systemDisplay.courseInSem("2020A"));
 
 
 

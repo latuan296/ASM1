@@ -178,22 +178,39 @@ public class studentEnrolment {
         return false;
 }
 
-//  Get one student in one semester
-    public String getOne(String studentID, String semester){
-        String outputData = null;
-        if (EnrollList.containsKey(semester)) {
-            HashMap<String, String> studentData = EnrollList.get(semester);
-            if (studentData.containsKey(studentID)){
-                outputData = studentData.get(studentID);
-                return outputData;
-            } else
-                outputData = "Student invalid";
-                return outputData;
-        }
-        else {
-            outputData = "Semester invalid";
+//  Get all student data in one semester (wrong function)
+//    public String getOne(String studentID, String semester){
+//        String outputData = null;
+//        if (EnrollList.containsKey(semester)) {
+//            HashMap<String, String> studentData = EnrollList.get(semester);
+//            if (studentData.containsKey(studentID)){
+//                outputData = studentData.get(studentID);
+//                return outputData;
+//            } else
+//                outputData = "Student invalid";
+//                return outputData;
+//        }
+//        else {
+//            outputData = "Semester invalid";
+//            return outputData;
+//        }
+//    }
+
+//  Get all student in one semester
+    public ArrayList<String> getOne(String semester){
+        ArrayList<String> outputData = new ArrayList<String>();
+        if (EnrollList.containsKey(semester)){
+            HashMap<String,String> studentData = EnrollList.get(semester);
+            for (String i: studentData.keySet()){
+                outputData.add(i);
+            }
             return outputData;
         }
+        else {
+            outputData.add("Can not found semester [" + semester +"] in system!");
+            return outputData;
+        }
+
     }
 
 //  Get all student in 1 course in 1 semester
@@ -221,7 +238,7 @@ public class studentEnrolment {
         }
     }
 
-//  Get all course in one semester
+//  Get all course in one semester (not done)
     public TreeSet<String> courseInSem(String semester){
         TreeSet<String> outputData = new TreeSet<String>();
         String data = null;
