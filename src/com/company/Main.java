@@ -35,7 +35,7 @@ public class Main {
 
 //  ENROLL STUDENT TO STUDENT ENROLMENT
 ////  sem 2020A
-//        systemDisplay.enrol(s1,c1,"2020A");
+        systemDisplay.enrol(s1,c1,"2020A");
 //        systemDisplay.enrol(s1,c1,"2020A");
 //        systemDisplay.enrol(s1,c2,"2020A");
 //
@@ -96,6 +96,25 @@ public class Main {
 //        System.out.println(systemDisplay.studentsInCourse(semester,courseID));
 
 
+
+
+//  Delete function
+        System.out.println("Input follow structure to delete course data");
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input student name: ");
+        String studentName = scanner.nextLine();
+
+        System.out.print("Input student ID: ");
+        String studentID = scanner.next();
+
+        System.out.print("Input semester want to delete: ");
+        String semester = scanner.next();
+
+        System.out.print("Input course ID to delete: ");
+        String courseID = scanner.next();
+
+        System.out.println(systemDisplay.deleteCourse(studentName,studentID,semester,courseID));
 
 
 
