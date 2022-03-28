@@ -8,18 +8,18 @@ public class Main {
     public static void main(String[] args) {
         Student s1 = new Student("s3836290", "Le Anh Tuan","29/06/1998");
         Student s2 = new Student("S3836480","Nguyen Thuy Linh","25/11/2001");
-        Course c1 = new Course("COSC2440", "Further Programming",12);
-        Course c2 = new Course("SYS1244","MATH", 12);
-        Course c3 = new Course("SYS999","SEPM",12);
+        Course c1 = new Course("6666", "Further Programming",12);
+        Course c2 = new Course("8888","MATH", 12);
+        Course c3 = new Course("9999","SEPM",12);
         studentEnrolment systemDisplay = new studentEnrolment();
 //        Student studentSystem = new Student();
 
 
 
 //        ADD STUDENT LIST
-        systemDisplay.addStudent(s1);
-        systemDisplay.addStudent(s1);
-        systemDisplay.addStudent(s2);
+//        systemDisplay.addStudent(s1);
+//        systemDisplay.addStudent(s1);
+//        systemDisplay.addStudent(s2);
 //        System.out.println(e1.getStudentList());
 
 
@@ -35,11 +35,11 @@ public class Main {
 
 //  ENROLL STUDENT TO STUDENT ENROLMENT
 ////  sem 2020A
-        systemDisplay.enrol(s1,c1,"2020A");
 //        systemDisplay.enrol(s1,c1,"2020A");
-        systemDisplay.enrol(s1,c2,"2020A");
+//        systemDisplay.enrol(s1,c1,"2020A");
+//        systemDisplay.enrol(s1,c2,"2020A");
 //
-        systemDisplay.enrol(s2,c1,"2020A");
+//        systemDisplay.enrol(s2,c1,"2020A");
 //        systemDisplay.enrol(s2,c3,"2020A");
 //        systemDisplay.enroll(s2,c3,"2020A");
 //
@@ -48,7 +48,7 @@ public class Main {
 //        systemDisplay.enrol(s2,c3,"2021B");
 //        systemDisplay.enrol(s2,c1,"2021B");
 //        systemDisplay.enrol(s1,c2,"2021B");
-////  sem 2022C
+//// sem 2022C
 //        systemDisplay.enrol(s1,c3,"2022C");
 //        systemDisplay.enrol(s1,c1,"2022C");
 //        systemDisplay.enrol(s2,c2,"2022C");
@@ -87,18 +87,16 @@ public class Main {
 
 
 ////  Get all student in 1 course 1 sem
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Input semester : ");
-        String semester = scanner.next();
-        System.out.print("Input courseID: ");
-        String courseID = scanner.next();
-        System.out.println(systemDisplay.studentsInCourse(semester,courseID));
+//        System.out.println("Input follow structure to get student data");
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Input semester : ");
+//        String semester = scanner.next();
+//        System.out.print("Input courseID: ");
+//        String courseID = scanner.next();
+//        System.out.println(systemDisplay.studentsInCourse(semester,courseID));
 
 
 
-
-//  GET ONE FUNCTION
-//        System.out.println(e1.getOne(s1,c1));
 
 
 

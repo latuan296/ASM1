@@ -206,7 +206,7 @@ public class studentEnrolment {
                 }
             }
             if (outputData.isEmpty()){
-                String errorMessage = "Can not found courseID " + courseID + " in system data";
+                String errorMessage = "Can not found courseID [" + courseID + "] in semester " + semester;
                 outputData.add(errorMessage);
                 return outputData;
             }
@@ -214,11 +214,14 @@ public class studentEnrolment {
 
         }
         else {
-            String errorMessage = "Can not found semester " + semester + " in system data";
+            String errorMessage = "Can not found semester [" + semester + "] in system data";
             outputData.add(errorMessage);
             return outputData;
         }
     }
+
+//   Delete function
+
 
 
     @Override
