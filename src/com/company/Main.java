@@ -35,23 +35,30 @@ public class Main {
 
 
 //  ENROLL STUDENT TO STUDENT ENROLMENT
-
-
+//  sem 2020A
         e1.enroll(s1,c1,"2020A");
         e1.enroll(s1,c1,"2020A");
-        e1.enroll(s2,c1,"2020A");
         e1.enroll(s1,c2,"2020A");
-//
-        e1.enroll(s2,c3,"2021A");
-        e1.enroll(s2,c3,"2021A");
-//
-        e1.enroll(s1,c1,"2022A");
-//        e1.enroll(s1,c1,"2023A");
-//        e1.enroll(s2,c2,"2023A");
+
+        e1.enroll(s2,c1,"2020A");
+        e1.enroll(s2,c3,"2020A");
+        e1.enroll(s2,c3,"2020A");
+
+//  sem 2021B
+        e1.enroll(s2,c3,"2021B");
+        e1.enroll(s2,c3,"2021B");
+        e1.enroll(s2,c1,"2021B");
+        e1.enroll(s1,c1,"2021B");
+//  sem 2022C
+        e1.enroll(s1,c1,"2022C");
+        e1.enroll(s1,c1,"2022C");
+        e1.enroll(s2,c2,"2022C");
+        System.out.println(e1.enroll(s2,c1,"2022C"));
 
 
 
-        System.out.println(e1.getFinalEnrollList());
+
+        System.out.println(e1.getEnrollList());
 
 
 

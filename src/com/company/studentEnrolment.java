@@ -11,8 +11,8 @@ public class studentEnrolment {
     private Course course;
     private ArrayList<Student> studentList;
     private ArrayList<Course> courseList;
-    private HashMap<String,String> EnrolmentList;
-    private HashMap<String,HashMap> finalEnrollList;
+//    private HashMap<String,String> EnrolmentList;
+    private HashMap<String,HashMap> EnrollList;
 
 
 //    private ArrayList<String> studentCourse;
@@ -23,17 +23,17 @@ public class studentEnrolment {
     public studentEnrolment(){
         this.student = student;
         this.course = course;
-        this.EnrolmentList = new HashMap<String, String>();
+//        this.EnrolmentList = new HashMap<String, String>();
         this.studentList = new ArrayList<Student>();
         this.courseList = new ArrayList<Course>();
-        this.finalEnrollList = new HashMap<String, HashMap>();
+        this.EnrollList = new HashMap<String, HashMap>();
     }
 
     public studentEnrolment(String semester, Student student, Course course) {
         Semester = semester;
         this.student = student;
         this.course = course;
-        this.EnrolmentList = new HashMap<String, String>();
+//        this.EnrolmentList = new HashMap<String, String>();
         this.studentList = new ArrayList<Student>();
         this.courseList = new ArrayList<Course>();
 
@@ -81,20 +81,20 @@ public class studentEnrolment {
         this.courseList = courseList;
     }
 
-    public HashMap<String,String> getEnrolmentList() {
-        return EnrolmentList;
+//    public HashMap<String,String> getEnrolmentList() {
+//        return EnrolmentList;
+//    }
+//
+//    public void setEnrolmentList(HashMap<String,String> enrolmentList) {
+//        EnrolmentList = enrolmentList;
+//    }
+
+    public HashMap<String, HashMap> getEnrollList() {
+        return EnrollList;
     }
 
-    public void setEnrolmentList(HashMap<String,String> enrolmentList) {
-        EnrolmentList = enrolmentList;
-    }
-
-    public HashMap<String, HashMap> getFinalEnrollList() {
-        return finalEnrollList;
-    }
-
-    public void setFinalEnrollList(HashMap<String, HashMap> finalEnrollList) {
-        this.finalEnrollList = finalEnrollList;
+    public void setEnrollList(HashMap<String, HashMap> EnrollList) {
+        this.EnrollList = EnrollList;
     }
 
 
@@ -126,33 +126,31 @@ public class studentEnrolment {
 
 // Enroll student & Course
     public String enroll(Student student,Course course,String semester){
-        String oldValue = EnrolmentList.get(student.getStudentID());
         String newCourse = course.getCourseName();
-
-        if (finalEnrollList.containsKey(semester)){
-
-            if (EnrolmentList.containsKey(student.getStudentID()) && oldValue.contains(newCourse)){
+        if (EnrollList.containsKey(semester)){
+            HashMap<String,String> oldData = EnrollList.get(semester);
+            String oldValue = oldData.get(student.getStudentID());
+            if (oldData.containsKey(student.getStudentID()) && oldValue.contains(newCourse)){
                 return "You already enroll before";
             }
-            else if (EnrolmentList.containsKey(student.getStudentID())){
+            else if (oldData.containsKey(student.getStudentID())){
                 String value = oldValue +", " +newCourse;
-                EnrolmentList.put(student.getStudentID(),value);
+                oldData.put(student.getStudentID(),value);
+                EnrollList.put(semester,oldData);
+                return "Success";
             }
             else {
-                EnrolmentList.put(student.getStudentID(),course.getCourseName());
+                oldData.put(student.getStudentID(),newCourse);
+                EnrollList.put(semester,oldData);
+                return "Success";
             }
-
-            finalEnrollList.put(semester,EnrolmentList);
-            return "Success";
         }
-
         else {
             HashMap<String,String> newList = new HashMap<>();
             newList.put(student.getStudentID(),newCourse);
-            finalEnrollList.put(semester,newList);
+            EnrollList.put(semester,newList);
             return "Success";
         }
-
     }
 
 
