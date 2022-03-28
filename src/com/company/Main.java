@@ -47,15 +47,15 @@ public class Main {
 //        systemDisplay.enrol(s2,c3,"2021B");
 //        systemDisplay.enrol(s2,c3,"2021B");
 //        systemDisplay.enrol(s2,c1,"2021B");
-        systemDisplay.enrol(s1,c2,"2021B");
+//        systemDisplay.enrol(s1,c2,"2021B");
 ////  sem 2022C
-        systemDisplay.enrol(s1,c3,"2022C");
+//        systemDisplay.enrol(s1,c3,"2022C");
 //        systemDisplay.enrol(s1,c1,"2022C");
-        systemDisplay.enrol(s2,c2,"2022C");
-        systemDisplay.enrol(s2,c3,"2022C");
+//        systemDisplay.enrol(s2,c2,"2022C");
+//        systemDisplay.enrol(s2,c3,"2022C");
 //        System.out.println(systemDisplay.enrol(s2,c1,"2022C"));
 //
-        System.out.println(systemDisplay.getEnrollList());
+//        System.out.println(systemDisplay.getEnrollList());
 
 
 
@@ -87,12 +87,12 @@ public class Main {
 
 
 ////  Get all student in 1 course 1 sem
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.print("Input semester : ");
-//        String semester = scanner.next();
-//        System.out.print("Input courseID: ");
-//        String courseID = scanner.next();
-//        System.out.println(systemDisplay.studentsInCourse(semester,courseID));
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input semester : ");
+        String semester = scanner.next();
+        System.out.print("Input courseID: ");
+        String courseID = scanner.next();
+        System.out.println(systemDisplay.studentsInCourse(semester,courseID));
 
 
 

@@ -206,8 +206,11 @@ public class studentEnrolment {
                 }
             }
             return outputData;
+
         }
         else {
+            String errorMessage = "Can not found semester " + semester + " in system data";
+            outputData.add(errorMessage);
             return outputData;
         }
     }
