@@ -198,7 +198,6 @@ public class studentEnrolment {
 //  Get all student in 1 course in 1 semester
     public ArrayList<String> studentsInCourse(String semester, String courseID){
         ArrayList<String> outputData = new ArrayList<String>();
-
         if (EnrollList.containsKey(semester)){
             HashMap<String, String> studentData = EnrollList.get(semester);
             for (String i : studentData.keySet()){
@@ -222,13 +221,16 @@ public class studentEnrolment {
     }
 
 //   Delete function
-    public String deleteCourse(String studentName,String studentID, String semester,String courseID){
+    public String deleteCourse(String studentName,String studentID, String semester,String courseName,String courseID){
         String result = null;
         String key = "Student name: " + studentName + ", StudentID: " +studentID;
         if (EnrollList.containsKey(semester)){
             if (EnrollList.get(semester).containsKey(key)){
                 HashMap <String,String> semesterData = EnrollList.get(semester);
                 if (semesterData.get(key).contains(courseID)){
+                    String deleteValue = " CourseID: " +courseID + " CourseName: " + courseName;
+                    String newValue = semesterData.get(key).replace(deleteValue,"");
+                    EnrollList.get(semester).put(key,newValue);
                     result = "Delete course success";
                     return result;
                 }
