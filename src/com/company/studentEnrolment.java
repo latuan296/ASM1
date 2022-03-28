@@ -205,6 +205,11 @@ public class studentEnrolment {
                     outputData.add(i);
                 }
             }
+            if (outputData.isEmpty()){
+                String errorMessage = "Can not found courseID " + courseID + " in system data";
+                outputData.add(errorMessage);
+                return outputData;
+            }
             return outputData;
 
         }
