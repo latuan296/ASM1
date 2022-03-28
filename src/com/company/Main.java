@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class Main {
 
@@ -39,8 +40,8 @@ public class Main {
 //        systemDisplay.enrol(s1,c1,"2020A");
         systemDisplay.enrol(s1,c2,"2020A");
 //
-//        systemDisplay.enrol(s2,c1,"2020A");
-//        systemDisplay.enrol(s2,c3,"2020A");
+        systemDisplay.enrol(s2,c1,"2020A");
+        systemDisplay.enrol(s2,c3,"2020A");
 //        systemDisplay.enroll(s2,c3,"2020A");
 //
 ////  sem 2021B
@@ -120,6 +121,11 @@ public class Main {
 //        System.out.println(systemDisplay.deleteCourse(studentName,studentID,semester,courseName,courseID));
 //        System.out.println(systemDisplay.deleteCourse("Le Anh Tuan","s3836290","2020A","Further Programming","6666"));
 //        System.out.println(systemDisplay.getEnrollList());
+
+
+//  Get all courses in one sem
+        System.out.println(systemDisplay.courseInSem("2020A"));
+
 
 
 

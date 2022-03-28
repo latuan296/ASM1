@@ -3,6 +3,7 @@ package com.company;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.TreeSet;
 
 public class studentEnrolment {
 
@@ -220,21 +221,26 @@ public class studentEnrolment {
         }
     }
 
-////  Get all course in one semester
-//    public ArrayList<String> courseInSem(String semester, String courseName, String courseID){
-//        ArrayList<String> outputData = new ArrayList<String>();
-//        String result = null;
-//        String courseForm = " CourseID: " +courseID + " CourseName: " + courseName;
-//        if (EnrollList.containsKey(semester)){
-//            HashMap<String, String> courseData = EnrollList.get(semester);
-//
-//        }
-//        else {
-//            result = "Can not found semester [" + semester + "] in system data";
-//            outputData.add(result);
-//            return outputData;
-//        }
-//    }
+//  Get all course in one semester
+    public TreeSet<String> courseInSem(String semester){
+        TreeSet<String> outputData = new TreeSet<String>();
+        String data = null;
+        if (EnrollList.containsKey(semester)){
+            HashMap<String,String> courseData = EnrollList.get(semester);
+            ArrayList<String> value = new ArrayList<String>();
+//            String value = null;
+            for (String i: courseData.keySet()) {
+                value.add(courseData.get(i));
+            }
+
+            return outputData;
+        }
+        else {
+            data = "Can not found semester [" + semester + "] in system data";
+            outputData.add(data);
+            return outputData;
+        }
+    }
 
 //   Delete function
     public String deleteCourse(String studentName,String studentID, String semester,String courseName,String courseID){
