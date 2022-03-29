@@ -179,7 +179,7 @@ public class studentEnrolment {
         return false;
 }
 
-//  Get all student data in one semester (optional)
+//  Get all student DATA in one semester (optional)
     public String getOneData(String studentName, String studentID, String semester){
         String outputData = null;
         String key = "Student name: " + studentName + ", StudentID: " + studentID;
@@ -291,25 +291,6 @@ public class studentEnrolment {
             return result;
         }
     }
-
-//  Sort data to write file
-//    public String stringData(){
-//        String stringData = "";
-//        for (String i : EnrollList.keySet()) {
-//            HashMap <String,String> studentData = EnrollList.get(i);
-//            stringData += studentData.keySet();
-//        }
-//
-//        String[] arrData = stringData.split("}");
-//        for (int i = 0; i < arrData.length; i++) {
-//            System.out.println(arrData[i]);
-//        }
-//
-//
-//
-//        return "test";
-//    }
-
 
 
     @Override
