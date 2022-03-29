@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.TreeSet;
+
 
 public class studentEnrolment {
 
@@ -88,7 +88,7 @@ public class studentEnrolment {
 
 
 //  Interface
-//  add student list
+//  Add student list
     public boolean addStudent(Student student){
         if (studentList.contains(student)){
             return false;
@@ -99,7 +99,7 @@ public class studentEnrolment {
         }
     }
 
-//  add course list
+//  Add course list
     public boolean addCourse(Course course){
         if (courseList.contains(course)){
             return false;
@@ -159,7 +159,7 @@ public class studentEnrolment {
         return false;
     }
 
-//  update Course Data
+//  Update Course Data
     public boolean updateCourse(String idCourse,int a,String update){
         if (a == 1){
             for (Course i: courseList)
@@ -240,7 +240,7 @@ public class studentEnrolment {
         }
     }
 
-//  Get all course in one semester (not done)
+//  Get all course in one semester
     public HashSet<String> courseInSem(String semester){
         HashSet<String> outputData = new HashSet<>();
         String data = "";
@@ -262,7 +262,7 @@ public class studentEnrolment {
         }
     }
 
-//   Delete function
+//  Delete course of 1 student in 1 semester
     public String deleteCourse(String studentName,String studentID, String semester,String courseName,String courseID){
         String result = null;
         String key = "Student name: " + studentName + ", StudentID: " +studentID;

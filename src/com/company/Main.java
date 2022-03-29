@@ -269,44 +269,6 @@ public class Main {
 //        System.out.println(systemDisplay.getEnrollList());
 
 
-
-
-
-//  Sort data to write
-
-//  Create CSV File
-//        try {
-//            File myObj = new File("default.csv");
-//            if (myObj.createNewFile()) {
-//                System.out.println("File created: " + myObj.getName());
-//            } else {
-//                System.out.println("File already exists.");
-//            }
-//        }
-//
-//        catch (IOException e) {
-//            System.out.println("An error occurred.");
-//            e.printStackTrace();
-//        }
-
-
-//  Write file
-
-//        try {
-//            FileWriter myWriter = new FileWriter("default.csv");
-//
-//            myWriter.write("test" + "\n");
-//            myWriter.write("test2");
-//            myWriter.close();
-//            System.out.println("Successfully wrote to the file.");
-//        }
-//
-//        catch (IOException e) {
-//            System.out.println("An error occurred.");
-//            e.printStackTrace();
-//        }
-
-
     }
 }
 
