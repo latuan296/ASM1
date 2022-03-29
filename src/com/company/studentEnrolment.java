@@ -3,6 +3,7 @@ package com.company;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.TreeSet;
 
 public class studentEnrolment {
@@ -111,7 +112,7 @@ public class studentEnrolment {
 
 //  Enroll student & Course to each different semester
     public String enrol(Student student,Course course,String semester){
-        String newCourse = " CourseID: " +course.getCourseID() + " CourseName: " + course.getCourseName();
+        String newCourse = "( CourseID: " + course.getCourseID() + " CourseName: " + course.getCourseName() + "),";
         String key = "Student name: " + student.getStudentName() + ", StudentID: " +student.getStudentID();
         if (EnrollList.containsKey(semester)){
             HashMap<String,String> oldData = EnrollList.get(semester);
@@ -120,7 +121,7 @@ public class studentEnrolment {
                 return "You already enroll before";
             }
             else if (oldData.containsKey(key)){
-                String value = oldValue +", " + newCourse;
+                String value = oldValue + newCourse;
                 oldData.put(key,value);
                 EnrollList.put(semester,oldData);
                 return "Success";
@@ -179,22 +180,23 @@ public class studentEnrolment {
 }
 
 //  Get all student data in one semester (wrong function)
-//    public String getOne(String studentID, String semester){
-//        String outputData = null;
-//        if (EnrollList.containsKey(semester)) {
-//            HashMap<String, String> studentData = EnrollList.get(semester);
-//            if (studentData.containsKey(studentID)){
-//                outputData = studentData.get(studentID);
-//                return outputData;
-//            } else
-//                outputData = "Student invalid";
-//                return outputData;
-//        }
-//        else {
-//            outputData = "Semester invalid";
-//            return outputData;
-//        }
-//    }
+    public String getOneData(String studentName, String studentID, String semester){
+        String outputData = null;
+        String key = "Student name: " + studentName + ", StudentID: " + studentID;
+        if (EnrollList.containsKey(semester)) {
+            HashMap<String, String> studentData = EnrollList.get(semester);
+            if (studentData.containsKey(key)){
+                outputData = studentData.get(key);
+                return outputData;
+            } else
+                outputData = "Student invalid";
+                return outputData;
+        }
+        else {
+            outputData = "Semester invalid";
+            return outputData;
+        }
+    }
 
 //  Get all student in one semester
     public ArrayList<String> getOne(String semester){
@@ -239,17 +241,18 @@ public class studentEnrolment {
     }
 
 //  Get all course in one semester (not done)
-    public TreeSet<String> courseInSem(String semester){
-        TreeSet<String> outputData = new TreeSet<String>();
-        String data = null;
+    public HashSet<String> courseInSem(String semester){
+        HashSet<String> outputData = new HashSet<>();
+        String data = "";
         if (EnrollList.containsKey(semester)){
-            HashMap<String,String> courseData = EnrollList.get(semester);
-            ArrayList<String> value = new ArrayList<String>();
-//            String value = null;
+            HashMap <String,String> courseData = EnrollList.get(semester);
             for (String i: courseData.keySet()) {
-                value.add(courseData.get(i));
+                data += courseData.get(i);
             }
-
+            String[] value = data.split(",");
+            for (int i = 0; i < value.length; i++) {
+                outputData.add(value[i]);
+            }
             return outputData;
         }
         else {
@@ -263,7 +266,7 @@ public class studentEnrolment {
     public String deleteCourse(String studentName,String studentID, String semester,String courseName,String courseID){
         String result = null;
         String key = "Student name: " + studentName + ", StudentID: " +studentID;
-        String deleteValue = " CourseID: " +courseID + " CourseName: " + courseName;
+        String deleteValue = "( CourseID: " +courseID + " CourseName: " + courseName + "),";
         if (EnrollList.containsKey(semester)){
             if (EnrollList.get(semester).containsKey(key)){
                 HashMap <String,String> semesterData = EnrollList.get(semester);

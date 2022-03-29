@@ -1,8 +1,7 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.TreeSet;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Main {
 
@@ -39,23 +38,23 @@ public class Main {
         systemDisplay.enrol(s1,c1,"2020A");
 //        systemDisplay.enrol(s1,c1,"2020A");
         systemDisplay.enrol(s1,c2,"2020A");
-//        systemDisplay.enrol(s2,c1,"2020A");
-//        systemDisplay.enrol(s2,c3,"2020A");
+        systemDisplay.enrol(s2,c1,"2020A");
+        systemDisplay.enrol(s2,c3,"2020A");
 //        systemDisplay.enroll(s2,c3,"2020A");
 //
 ////  sem 2021B
+        systemDisplay.enrol(s2,c3,"2021B");
 //        systemDisplay.enrol(s2,c3,"2021B");
-//        systemDisplay.enrol(s2,c3,"2021B");
-//        systemDisplay.enrol(s2,c1,"2021B");
+        systemDisplay.enrol(s2,c1,"2021B");
 //        systemDisplay.enrol(s1,c2,"2021B");
 //// sem 2022C
 //        systemDisplay.enrol(s1,c3,"2022C");
-//        systemDisplay.enrol(s1,c1,"2022C");
-//        systemDisplay.enrol(s2,c2,"2022C");
+        systemDisplay.enrol(s1,c1,"2022C");
+        systemDisplay.enrol(s2,c2,"2022C");
 //        systemDisplay.enrol(s2,c3,"2022C");
 //        System.out.println(systemDisplay.enrol(s2,c1,"2022C"));
 //
-        System.out.println(systemDisplay.getEnrollList());
+//        System.out.println(systemDisplay.getEnrollList());
 
 
 
@@ -83,6 +82,20 @@ public class Main {
 //        String semester = scanner.nextLine();
 //        System.out.println(systemDisplay.getOne(semester));
 
+//  Get all course from 1 student in 1 semester
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Input student name: ");
+//        String studentName = scanner.nextLine();
+//        System.out.print("Input student ID: ");
+//        String studentID = scanner.nextLine();
+//        System.out.print("Input semester: ");
+//        String semester = scanner.nextLine();
+
+//        System.out.println(systemDisplay.getOneData(studentName,studentID,semester));
+//        System.out.println(systemDisplay.getOneData("Le Anh Tuan","s3836290","2020A"));
+
+
+
 
 ////  Get all student in 1 course 1 sem
 //        System.out.println("Input follow structure to get student data");
@@ -92,7 +105,6 @@ public class Main {
 //        System.out.print("Input courseID: ");
 //        String courseID = scanner.nextLine();
 //        System.out.println(systemDisplay.studentsInCourse(semester,courseID));
-
 
 
 
@@ -121,7 +133,9 @@ public class Main {
 
 
 //  Get all courses in one sem
-//        System.out.println(systemDisplay.courseInSem("2020A"));
+
+//        System.out.println(systemDisplay.courseInSem("2022C"));
+
 
 
 
