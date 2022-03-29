@@ -20,15 +20,15 @@ public class Main {
 //        systemDisplay.addStudent(s1);
 //        systemDisplay.addStudent(s1);
 //        systemDisplay.addStudent(s2);
-//        System.out.println(e1.getStudentList());
+//        System.out.println(systemDisplay.getStudentList());
 
 
 
 //        ADD COURSE
-//        systemDisplay.addCourse(c1);
-//        systemDisplay.addCourse(c2);
-//        systemDisplay.addCourse(c2);
-//        systemDisplay.addCourse(c3);
+        systemDisplay.addCourse(c1);
+        systemDisplay.addCourse(c2);
+        systemDisplay.addCourse(c2);
+        systemDisplay.addCourse(c3);
 //        System.out.println(systemDisplay.getCourseList());
 
 
@@ -36,24 +36,23 @@ public class Main {
 //  ENROLL STUDENT TO STUDENT ENROLMENT
 ////  sem 2020A
         systemDisplay.enrol(s1,c1,"2020A");
-//        systemDisplay.enrol(s1,c1,"2020A");
+        systemDisplay.enrol(s1,c1,"2020A");
         systemDisplay.enrol(s1,c2,"2020A");
         systemDisplay.enrol(s2,c1,"2020A");
         systemDisplay.enrol(s2,c3,"2020A");
-//        systemDisplay.enroll(s2,c3,"2020A");
-//
+        systemDisplay.enrol(s2,c3,"2020A");
 ////  sem 2021B
         systemDisplay.enrol(s2,c3,"2021B");
-//        systemDisplay.enrol(s2,c3,"2021B");
+        systemDisplay.enrol(s2,c3,"2021B");
         systemDisplay.enrol(s2,c1,"2021B");
-//        systemDisplay.enrol(s1,c2,"2021B");
+        systemDisplay.enrol(s1,c2,"2021B");
 //// sem 2022C
-//        systemDisplay.enrol(s1,c3,"2022C");
+        systemDisplay.enrol(s1,c3,"2022C");
         systemDisplay.enrol(s1,c1,"2022C");
         systemDisplay.enrol(s2,c2,"2022C");
-//        systemDisplay.enrol(s2,c3,"2022C");
+        systemDisplay.enrol(s2,c3,"2022C");
 //        System.out.println(systemDisplay.enrol(s2,c1,"2022C"));
-//
+
 //        System.out.println(systemDisplay.getEnrollList());
 
 
@@ -73,6 +72,7 @@ public class Main {
 //        int a = scanner.nextInt();
 //
 //        systemDisplay.updateCourse("COSC2440",a,"123");
+//        systemDisplay.updateCourse("6666",2,"123");
 //        System.out.println(systemDisplay.getCourseList());
 
 
@@ -82,6 +82,7 @@ public class Main {
 //        String semester = scanner.nextLine();
 //        System.out.println(systemDisplay.getOne(semester));
 
+
 //  Get all course from 1 student in 1 semester
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.print("Input student name: ");
@@ -90,10 +91,9 @@ public class Main {
 //        String studentID = scanner.nextLine();
 //        System.out.print("Input semester: ");
 //        String semester = scanner.nextLine();
-
+//
 //        System.out.println(systemDisplay.getOneData(studentName,studentID,semester));
 //        System.out.println(systemDisplay.getOneData("Le Anh Tuan","s3836290","2020A"));
-
 
 
 
@@ -107,8 +107,11 @@ public class Main {
 //        System.out.println(systemDisplay.studentsInCourse(semester,courseID));
 
 
+// Get all courses in one sem
+//        System.out.println(systemDisplay.courseInSem("2022C"));
 
-//  Delete function
+
+//  Delete function (drop course)
 //        System.out.println("Input follow structure to delete course data");
 //
 //        Scanner scanner = new Scanner(System.in);
@@ -132,9 +135,7 @@ public class Main {
 //        System.out.println(systemDisplay.getEnrollList());
 
 
-//  Get all courses in one sem
 
-//        System.out.println(systemDisplay.courseInSem("2022C"));
 
 
 
