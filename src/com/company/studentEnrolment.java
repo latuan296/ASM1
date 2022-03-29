@@ -111,9 +111,9 @@ public class studentEnrolment {
     }
 
 //  Enroll student & Course to each different semester
-    public String enrol(Student student,Course course,String semester){
-        String newCourse = "( CourseID: " + course.getCourseID() + " CourseName: " + course.getCourseName() + "),";
-        String key = "Student name: " + student.getStudentName() + ", StudentID: " +student.getStudentID();
+    public String enrol(String studentName, String studentID, String courseID, String courseName,String semester){
+        String newCourse = "( CourseID: " + courseID + " CourseName: " + courseName + "),";
+        String key = "Student name: " + studentName + ", StudentID: " +studentID;
         if (EnrollList.containsKey(semester)){
             HashMap<String,String> oldData = EnrollList.get(semester);
             String oldValue = oldData.get(key);
@@ -179,7 +179,7 @@ public class studentEnrolment {
         return false;
 }
 
-//  Get all student data in one semester (wrong function)
+//  Get all student data in one semester (optional)
     public String getOneData(String studentName, String studentID, String semester){
         String outputData = null;
         String key = "Student name: " + studentName + ", StudentID: " + studentID;
@@ -291,6 +291,25 @@ public class studentEnrolment {
             return result;
         }
     }
+
+//  Sort data to write file
+//    public String stringData(){
+//        String stringData = "";
+//        for (String i : EnrollList.keySet()) {
+//            HashMap <String,String> studentData = EnrollList.get(i);
+//            stringData += studentData.keySet();
+//        }
+//
+//        String[] arrData = stringData.split("}");
+//        for (int i = 0; i < arrData.length; i++) {
+//            System.out.println(arrData[i]);
+//        }
+//
+//
+//
+//        return "test";
+//    }
+
 
 
     @Override
