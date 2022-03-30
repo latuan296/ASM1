@@ -1,12 +1,6 @@
 package com.company;
 
-
-
-import java.lang.reflect.Array;
 import java.util.*;
-import java.io.File;
-import java.io.IOException;
-import java.io.FileWriter;
 
 
 public class Main {
@@ -118,7 +112,7 @@ public class Main {
                 int option = scanner.nextInt();
                 scanner.nextLine();
                 if (option == 1){
-                    System.out.println("");
+                    System.out.println("Update student data");
                     System.out.print("Input student ID: ");
                     String studentID = scanner.nextLine();
                     System.out.print("Input 1 to update name OR 2 to update DOB: ");
@@ -140,6 +134,7 @@ public class Main {
                     }
                 }
                 else if (option == 2){
+                    System.out.println("Update Course data");
                     System.out.print("Input course ID: ");
                     String courseID = scanner.nextLine();
                     System.out.print("Input 1 to update course name OR 2 to update credit point: ");
@@ -230,6 +225,7 @@ public class Main {
                 }
 
                 else if (option == 3){
+                    System.out.println("Get all Students in 1 semester");
                     System.out.print("Input semester: ");
                     String semester = scanner.nextLine();
                     System.out.println(systemDisplay.getOne(semester));
@@ -245,6 +241,7 @@ public class Main {
                     }
                 }
                 else if (option == 4) {
+                    System.out.println("Get all Course for 1 student in 1 semester");
                     System.out.print("Input student ID: ");
                     String studentID = scanner.nextLine();
                     System.out.print("Input semester: ");
@@ -262,6 +259,7 @@ public class Main {
                     }
                 }
                 else if (option == 5) {
+                    System.out.println("Get all Students in 1 course in 1 semester");
                     System.out.println("Input follow structure to get student data");
                     System.out.print("Input semester : ");
                     String semester = scanner.nextLine();
@@ -280,6 +278,7 @@ public class Main {
                     }
                 }
                 else if (option == 6){
+                    System.out.println("Get all Course in 1 semester");
                     System.out.print("Input semester: ");
                     String semester = scanner.nextLine();
                     System.out.println(systemDisplay.courseInSem(semester));

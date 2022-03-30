@@ -113,8 +113,6 @@ public class studentEnrolment {
 
 //  Enroll student & Course to each different semester
     public String enrol(String studentID, String courseID, String semester){
-
-//  Check student ID and Course ID (new)
         String newCourse = "";
         for (Course i: courseList){
             if (i.getCourseID().equals(courseID)){

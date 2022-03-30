@@ -47,8 +47,6 @@ public class Course {
         this.studentList = studentList;
     }
 
-
-// enroll student
     public boolean enroll(Student student){
         if (studentList.contains(student)){
             return false;
