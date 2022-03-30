@@ -91,6 +91,7 @@ public class studentEnrolment {
 //  Add student list
     public boolean addStudent(Student student){
         if (studentList.contains(student)){
+            System.out.println("Student already in");
             return false;
         }
         else{
@@ -102,6 +103,7 @@ public class studentEnrolment {
 //  Add course list
     public boolean addCourse(Course course){
         if (courseList.contains(course)){
+            System.out.println("Course already in");
             return false;
         }
         else{
@@ -124,19 +126,19 @@ public class studentEnrolment {
                 String value = oldValue + newCourse;
                 oldData.put(key,value);
                 EnrollList.put(semester,oldData);
-                return "Success";
+                return "Enroll more course success";
             }
             else {
                 oldData.put(key,newCourse);
                 EnrollList.put(semester,oldData);
-                return "Success";
+                return "Enroll Success";
             }
         }
         else {
             HashMap<String,String> newList = new HashMap<>();
             newList.put(key,newCourse);
             EnrollList.put(semester,newList);
-            return "Success";
+            return "Enroll Success";
         }
     }
 
@@ -146,6 +148,7 @@ public class studentEnrolment {
             for (Student i: studentList)
                 if (i.getStudentID().equals(idStudent)){
                     i.setStudentName(update);
+                    System.out.println("Update name success: ");
                     return true;
                 }
         }
@@ -153,9 +156,11 @@ public class studentEnrolment {
             for (Student i: studentList)
                 if (i.getStudentID().equals(idStudent)){
                     i.setStudentBirthdate(update);
+                    System.out.println("Update birthday success");
                     return true;
                 }
         }
+        System.out.println("Invalid Data");
         return false;
     }
 
@@ -165,6 +170,7 @@ public class studentEnrolment {
             for (Course i: courseList)
                 if (i.getCourseID().equals(idCourse)){
                     i.setCourseName(update);
+                    System.out.println("Update course name success");
                     return true;
                 }
         }
@@ -173,9 +179,11 @@ public class studentEnrolment {
             for (Course i: courseList)
                 if (i.getCourseID().equals(idCourse)){
                     i.setCourseCredit(newCredit);
+                    System.out.println("Update course credit point success");
                     return true;
                 }
         }
+        System.out.println("Invalid data");
         return false;
 }
 
@@ -189,11 +197,11 @@ public class studentEnrolment {
                 outputData = studentData.get(key);
                 return outputData;
             } else
-                outputData = "Student invalid";
+                outputData = "Can not found student name ["  +studentName + "] and studentID [" + studentID + "] in system data";
                 return outputData;
         }
         else {
-            outputData = "Semester invalid";
+            outputData = "Can not found semester [" + semester + "] in system data";
             return outputData;
         }
     }
@@ -231,7 +239,6 @@ public class studentEnrolment {
                 return outputData;
             }
             return outputData;
-
         }
         else {
             String errorMessage = "Can not found semester [" + semester + "] in system data";
