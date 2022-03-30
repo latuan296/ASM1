@@ -1,5 +1,7 @@
 package com.company;
 
+
+
 import java.lang.reflect.Array;
 import java.util.*;
 import java.io.File;
@@ -14,12 +16,14 @@ public class Main {
 //  Sample Data
 //  Sample students & course
         Student s1 = new Student("s3836290", "Le Anh Tuan","29/06/1998");
-        Student s2 = new Student("S3836480","Nguyen Thuy Linh","25/11/2001");
+        Student s2 = new Student("s3836480","Nguyen Thuy Linh","25/11/2001");
         Course c1 = new Course("COSC2440", "Further Programming",12);
         Course c2 = new Course("MATH2081","MATH", 12);
         Course c3 = new Course("ISYS2101","SEPM",12);
 //  Create sample list
         studentEnrolment systemDisplay = new studentEnrolment();
+
+
 //  Add sample student list
         systemDisplay.addStudent(s1);
         systemDisplay.addStudent(s2);
@@ -29,15 +33,16 @@ public class Main {
         systemDisplay.addCourse(c3);
 
 //  Enroll sample list
-//  SEM 2022A
-        systemDisplay.enrol("Le Anh Tuan","s3836290","COSC2440","Further Programming","2022A");
-        systemDisplay.enrol("Le Anh Tuan","s3836290","MATH2081","MATH","2022A");
-        systemDisplay.enrol("Nguyen Thuy Linh","s3836480","COSC2440","Further Programming","2022A");
-//  SEM 2022B
-        systemDisplay.enrol("Le Anh Tuan","s3836290","ISYS2101","SEPM","2022B");
-        systemDisplay.enrol("Nguyen Thuy Linh","s3836480","ISYS2101","SEPM","2022B");
-        systemDisplay.enrol("Nguyen Thuy Linh","s3836480","MATH2081","MATH","2022B");
-
+////  SEM 2022A
+        systemDisplay.enrol("s3836290","COSC2440","2022A");
+        systemDisplay.enrol("s3836290","MATH2081","2022A");
+        systemDisplay.enrol("s3836480","COSC2440","2022A");
+        systemDisplay.enrol("s3836480","COSC2440","2022A");
+////  SEM 2022B
+        systemDisplay.enrol("s3836290","ISYS2101","2022B");
+        systemDisplay.enrol("s3836480","ISYS2101","2022B");
+        systemDisplay.enrol("s3836480","MATH2081","2022B");
+        System.out.println(systemDisplay.getEnrollList());
 
 
 //  Create a menu function of Managing interactions
@@ -63,6 +68,7 @@ public class Main {
                 int option = scanner.nextInt();
                 scanner.nextLine();
                 if (option == 1){
+                    System.out.println("Create New Student");
                     System.out.print("Input student ID: ");
                     String studentID = scanner.nextLine();
                     System.out.print("Input student name: ");
@@ -84,6 +90,7 @@ public class Main {
                     }
                 }
                 else if(option == 2){
+                    System.out.println("Create New Course");
                     System.out.print("Input course ID: ");
                     String courseID = scanner.next();
                     System.out.print("Input course name: ");
@@ -111,6 +118,7 @@ public class Main {
                 int option = scanner.nextInt();
                 scanner.nextLine();
                 if (option == 1){
+                    System.out.println("");
                     System.out.print("Input student ID: ");
                     String studentID = scanner.nextLine();
                     System.out.print("Input 1 to update name OR 2 to update DOB: ");
@@ -157,17 +165,13 @@ public class Main {
 //  Enroll student
             else if (optionNum == 3) {
                 System.out.println("Please input follow structure to enroll !");
-                System.out.print("Input student name: ");
-                String studentName = scanner.nextLine();
                 System.out.print("Input student ID: ");
                 String studentID = scanner.nextLine();
-                System.out.print("Input course name: ");
-                String courseName = scanner.nextLine();
                 System.out.print("Input course ID: ");
                 String courseID = scanner.nextLine();
                 System.out.print("Input semester: ");
                 String semester = scanner.nextLine();
-                System.out.println(systemDisplay.enrol(studentName,studentID,courseID,courseName,semester));
+                System.out.println(systemDisplay.enrol(studentID,courseID,semester));
                 System.out.println(systemDisplay.getEnrollList());
                 System.out.println("Do you want to continue enroll ? Press 1 to continue OR press any number to Exit");
                 System.out.print("Enter your option: ");
@@ -182,14 +186,50 @@ public class Main {
 //  Get system DATA
             } else if (optionNum == 4) {
                 System.out.println("Please choose kind of DATA you want to get: " + "\n" +
-                        " + Press 1 to get all Students in 1 semester" + "\n" +
-                        " + Press 2 to get all Course for 1 student in 1 semester" + "\n" +
-                        " + Press 3 to get all Students in 1 course in 1 semester" + "\n" +
-                        " + Press 4 to get all Course in 1 semester ");
+                        " + Press 1 to student information " + "\n" +
+                        " + Press 2 to course information" + "\n" +
+                        " + Press 3 to get all Students in 1 semester" + "\n" +
+                        " + Press 4 to get all Course for 1 student in 1 semester" + "\n" +
+                        " + Press 5 to get all Students in 1 course in 1 semester" + "\n" +
+                        " + Press 6 to get all Course in 1 semester ");
                 System.out.print("Input your option: ");
                 int option = scanner.nextInt();
                 scanner.nextLine();
                 if (option == 1){
+                    System.out.println("Get student data base on student ID");
+                    System.out.print("Enter student id: ");
+                    String studentID = scanner.nextLine();
+                    System.out.println(systemDisplay.getStudentInfor(studentID));
+                    System.out.println("Do you want to continue get DATA ? Press 1 to continue OR press any number to Exit");
+                    System.out.print("Enter your option: ");
+                    int exit = scanner.nextInt();
+                    scanner.nextLine();
+                    if (exit == 1){
+                        continue;
+                    }
+                    else {
+                        break;
+                    }
+                }
+                else if (option == 2){
+                    System.out.println("Get course data base on course ID");
+                    System.out.print("Enter course id: ");
+                    String courseID = scanner.nextLine();
+                    System.out.println(systemDisplay.getCourseInfor(courseID));
+                    System.out.println("Do you want to continue get DATA ? Press 1 to continue OR press any number to Exit");
+                    System.out.print("Enter your option: ");
+                    int exit = scanner.nextInt();
+                    scanner.nextLine();
+                    if (exit == 1){
+                        continue;
+                    }
+                    else {
+                        break;
+                    }
+
+                }
+
+                else if (option == 3){
                     System.out.print("Input semester: ");
                     String semester = scanner.nextLine();
                     System.out.println(systemDisplay.getOne(semester));
@@ -204,14 +244,12 @@ public class Main {
                         break;
                     }
                 }
-                else if (option == 2) {
-                    System.out.print("Input student name: ");
-                    String studentName = scanner.nextLine();
+                else if (option == 4) {
                     System.out.print("Input student ID: ");
                     String studentID = scanner.nextLine();
                     System.out.print("Input semester: ");
                     String semester = scanner.nextLine();
-                    System.out.println(systemDisplay.getOneData(studentName,studentID,semester));
+                    System.out.println(systemDisplay.getOneData(studentID,semester));
                     System.out.println("Do you want to continue get DATA ? Press 1 to continue OR press any number to Exit");
                     System.out.print("Enter your option: ");
                     int exit = scanner.nextInt();
@@ -223,7 +261,7 @@ public class Main {
                         break;
                     }
                 }
-                else if (option == 3) {
+                else if (option == 5) {
                     System.out.println("Input follow structure to get student data");
                     System.out.print("Input semester : ");
                     String semester = scanner.nextLine();
@@ -241,7 +279,7 @@ public class Main {
                         break;
                     }
                 }
-                else if (option == 4){
+                else if (option == 6){
                     System.out.print("Input semester: ");
                     String semester = scanner.nextLine();
                     System.out.println(systemDisplay.courseInSem(semester));
@@ -257,21 +295,16 @@ public class Main {
                     }
                 }
             }
-
 //  Delete function
             else if (optionNum == 5) {
                 System.out.println("Input follow structure to delete course data");
-                System.out.print("Input student name: ");
-                String studentName = scanner.nextLine();
                 System.out.print("Input student ID: ");
                 String studentID = scanner.nextLine();
                 System.out.print("Input semester want to delete: ");
                 String semester = scanner.nextLine();
-                System.out.print("Input course name to delete: ");
-                String courseName = scanner.nextLine();
                 System.out.print("Input course ID to delete: ");
                 String courseID = scanner.nextLine();
-                System.out.println(systemDisplay.deleteCourse(studentName,studentID,semester,courseName,courseID));
+                System.out.println(systemDisplay.deleteCourse(studentID,semester,courseID));
                 System.out.println(systemDisplay.getEnrollList());
                 System.out.println("Do you want to continue delete ? Press 1 to continue OR press any number to Exit");
                 System.out.print("Enter your option: ");
@@ -288,152 +321,6 @@ public class Main {
                 break;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-//  ADD STUDENT LIST
-//        System.out.print("Input student ID: ");
-//        String studentID = scanner.nextLine();
-//        System.out.print("Input student name: ");
-//        String studentName = scanner.nextLine();
-//        System.out.print("Input student birthday: ");
-//        String studentBirthdate = scanner.nextLine();
-//        Student s3 = new Student(studentID,studentName,studentBirthdate);
-//        systemDisplay.addStudent(s1);
-
-//        systemDisplay.addStudent(s1);
-//        systemDisplay.addStudent(s1);
-//        systemDisplay.addStudent(s2);
-//        System.out.println(systemDisplay.getStudentList());
-
-
-//        ADD COURSE
-//        System.out.print("Input course ID: ");
-//        String courseID = scanner.nextLine();
-//        System.out.print("Input course name: ");
-//        String courseName = scanner.nextLine();
-//        System.out.print("Input course Credit point: ");
-//        int courseCredit = scanner.nextInt();
-//        Course c4 = new Course(courseID,courseName,courseCredit);
-//        systemDisplay.addCourse(c4);
-
-//        systemDisplay.addCourse(c1);
-//        systemDisplay.addCourse(c2);
-//        systemDisplay.addCourse(c2);
-//        systemDisplay.addCourse(c3);
-//        System.out.println(systemDisplay.getCourseList());
-
-
-//  ENROLL STUDENT TO STUDENT ENROLMENT
-//        System.out.print("Input student name: ");
-//        String studentName = scanner.nextLine();
-//        System.out.print("Input student ID: ");
-//        String studentID = scanner.nextLine();
-//        System.out.print("Input course name: ");
-//        String courseName = scanner.nextLine();
-//        System.out.print("Input course ID: ");
-//        String courseID = scanner.nextLine();
-//        System.out.print("Input semester: ");
-//        String semester = scanner.nextLine();
-//        systemDisplay.enrol(studentName,studentID,courseID,courseName,semester);
-//        systemDisplay.enrol("Le Anh Tuan","s3836290","6666","Further Programming","2020A");
-//        systemDisplay.enrol("Le Anh Tuan","s3836290","7777","Math","2020A");
-//        systemDisplay.enrol("Le Anh Tuan","s3836290","7777","Math","2020A");
-//        System.out.println(systemDisplay.getEnrollList());
-
-
-//  Update student
-//        System.out.print("Input student ID: ");
-//        String studentID = scanner.nextLine();
-//        System.out.print("Input 1 to update name OR 2 to update DOB: ");
-//        int option = scanner.nextInt();
-//        System.out.print("Input update data: ");
-//        String updateData = scanner.next();
-//        systemDisplay.updateStudent(studentID,option,updateData);
-
-//        systemDisplay.updateStudent("s3836290",2,"123");
-//        System.out.println(systemDisplay.getStudentList());
-
-
-////  Update course
-//        System.out.print("Input course ID: ");
-//        String courseID = scanner.nextLine();
-//        System.out.print("Input 1 to update course name OR 2 to update credit point: ");
-//        int option = scanner.nextInt();
-//        System.out.print("Input update data: ");
-//        String updateData = scanner.next();
-//        systemDisplay.updateCourse(courseID,option,updateData);
-//        systemDisplay.updateCourse("6666",2,"123");
-
-//        System.out.println(systemDisplay.getCourseList());
-
-
-////  Get all Student in semester
-//        System.out.print("Input semester: ");
-//        String semester = scanner.nextLine();
-//        System.out.println(systemDisplay.getOne(semester));
-
-
-//  Get all course from 1 student in 1 semester
-
-//        System.out.print("Input student name: ");
-//        String studentName = scanner.nextLine();
-//        System.out.print("Input student ID: ");
-//        String studentID = scanner.nextLine();
-//        System.out.print("Input semester: ");
-//        String semester = scanner.nextLine();
-//
-//        System.out.println(systemDisplay.getOneData(studentName,studentID,semester));
-//        System.out.println(systemDisplay.getOneData("Le Anh Tuan","s3836290","2020A"));
-
-
-
-////  Get all student in 1 course 1 sem
-//        System.out.println("Input follow structure to get student data");
-//        System.out.print("Input semester : ");
-//        String semester = scanner.nextLine();
-//        System.out.print("Input courseID: ");
-//        String courseID = scanner.nextLine();
-//        System.out.println(systemDisplay.studentsInCourse(semester,courseID));
-
-
-// Get all courses in one sem
-//        System.out.print("Input semester: ");
-//        String semester = scanner.nextLine();
-//        System.out.println(systemDisplay.courseInSem(semester));
-
-
-//  Delete function (drop course)
-//        System.out.println("Input follow structure to delete course data");
-//
-//        System.out.print("Input student name: ");
-//        String studentName = scanner.nextLine();
-//
-//        System.out.print("Input student ID: ");
-//        String studentID = scanner.nextLine();
-//
-//        System.out.print("Input semester want to delete: ");
-//        String semester = scanner.nextLine();
-//
-//        System.out.print("Input course name to delete: ");
-//        String courseName = scanner.nextLine();
-//
-//        System.out.print("Input course ID to delete: ");
-//        String courseID = scanner.nextLine();
-//
-//        System.out.println(systemDisplay.deleteCourse(studentName,studentID,semester,courseName,courseID));
-//        System.out.println(systemDisplay.deleteCourse("Le Anh Tuan","s3836290","2020A","Math","7777"));
-//        System.out.println(systemDisplay.getEnrollList());
-
-
     }
 }
 

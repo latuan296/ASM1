@@ -14,7 +14,7 @@ public class studentEnrolment {
     private ArrayList<Student> studentList;
     private ArrayList<Course> courseList;
     private HashMap<String,HashMap> EnrollList;
-//    private ArrayList<String> studentCourse;
+
 
 
 
@@ -31,7 +31,6 @@ public class studentEnrolment {
         Semester = semester;
         this.student = student;
         this.course = course;
-
         this.studentList = new ArrayList<Student>();
         this.courseList = new ArrayList<Course>();
 
@@ -113,9 +112,30 @@ public class studentEnrolment {
     }
 
 //  Enroll student & Course to each different semester
-    public String enrol(String studentName, String studentID, String courseID, String courseName,String semester){
-        String newCourse = "( CourseID: " + courseID + " CourseName: " + courseName + "),";
-        String key = "Student name: " + studentName + ", StudentID: " +studentID;
+    public String enrol(String studentID, String courseID, String semester){
+
+//  Check student ID and Course ID (new)
+        String newCourse = "";
+        for (Course i: courseList){
+            if (i.getCourseID().equals(courseID)){
+                newCourse = i.toString();
+            }
+        }
+        if (newCourse.equals("")){
+            return "Course not exist";
+        }
+
+        String key = "";
+        for (Student i: studentList){
+            if (i.getStudentID().equals(studentID)){
+                key = i.toString();
+            }
+        }
+        if (key.equals("")){
+            return "Student not exist";
+        }
+
+//       Old
         if (EnrollList.containsKey(semester)){
             HashMap<String,String> oldData = EnrollList.get(semester);
             String oldValue = oldData.get(key);
@@ -188,16 +208,25 @@ public class studentEnrolment {
 }
 
 //  Get all student DATA in one semester (optional)
-    public String getOneData(String studentName, String studentID, String semester){
+    public String getOneData(String studentID, String semester){
         String outputData = null;
-        String key = "Student name: " + studentName + ", StudentID: " + studentID;
+        String key = "";
+        for (Student i: studentList){
+            if (i.getStudentID().equals(studentID)){
+                key = i.toString();
+            }
+        }
+        if (key.equals("")){
+            return "Student not exist";
+        }
+
         if (EnrollList.containsKey(semester)) {
             HashMap<String, String> studentData = EnrollList.get(semester);
             if (studentData.containsKey(key)){
                 outputData = studentData.get(key);
                 return outputData;
             } else
-                outputData = "Can not found student name ["  +studentName + "] and studentID [" + studentID + "] in system data";
+                outputData = "Can not found student name studentID [" + studentID + "] in system data";
                 return outputData;
         }
         else {
@@ -269,27 +298,70 @@ public class studentEnrolment {
         }
     }
 
+//  Get one student data
+    public String getStudentInfor(String studentID){
+        String outputData = null;
+        for (Student i : studentList){
+            if (i.getStudentID().equals(studentID)){
+                outputData = i.toString();
+                return outputData;
+            }
+        }
+        outputData = "Can not found student id " + studentID;
+        return outputData;
+    }
+
+//  Get one course data
+    public String getCourseInfor(String courseID){
+        String outputData = null;
+        for (Course i : courseList){
+            if (i.getCourseID().equals(courseID)){
+                outputData = i.toString();
+                return outputData;
+            }
+        }
+        outputData = "Can not found course id " + courseID;
+        return outputData;
+    }
+
 //  Delete course of 1 student in 1 semester
-    public String deleteCourse(String studentName,String studentID, String semester,String courseName,String courseID){
+    public String deleteCourse(String studentID, String semester,String courseID){
         String result = null;
-        String key = "Student name: " + studentName + ", StudentID: " +studentID;
-        String deleteValue = "( CourseID: " +courseID + " CourseName: " + courseName + "),";
+        String deleteCourse = "";
+        for (Course i: courseList){
+            if (i.getCourseID().equals(courseID)){
+                deleteCourse = i.toString();
+            }
+        }
+        if (deleteCourse.equals("")){
+            return "Course not exist";
+        }
+
+        String key = "";
+        for (Student i: studentList){
+            if (i.getStudentID().equals(studentID)){
+                key = i.toString();
+            }
+        }
+        if (key.equals("")){
+            return "Student not exist";
+        }
         if (EnrollList.containsKey(semester)){
             if (EnrollList.get(semester).containsKey(key)){
                 HashMap <String,String> semesterData = EnrollList.get(semester);
-                if (semesterData.get(key).contains(deleteValue)){
-                    String newValue = semesterData.get(key).replace(deleteValue,"");
+                if (semesterData.get(key).contains(deleteCourse)){
+                    String newValue = semesterData.get(key).replace(deleteCourse,"");
                     EnrollList.get(semester).put(key,newValue);
                     result = "Delete course success";
                     return result;
                 }
                 else {
-                    result = "Wrong course data input";
+                    result = "Course does not exist in enroll data";
                     return result;
                 }
             }
             else{
-                result = "Wrong student data input";
+                result = "Student does not in enroll course data";
                 return result;
             }
         }
@@ -298,7 +370,6 @@ public class studentEnrolment {
             return result;
         }
     }
-
 
     @Override
     public String toString() {
