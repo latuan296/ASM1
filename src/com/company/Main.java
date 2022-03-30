@@ -14,10 +14,9 @@ public class Main {
         Course c1 = new Course("COSC2440", "Further Programming",12);
         Course c2 = new Course("MATH2081","MATH", 12);
         Course c3 = new Course("ISYS2101","SEPM",12);
-//  Create sample list
         studentEnrolment systemDisplay = new studentEnrolment();
 
-
+//  Create sample list
 //  Add sample student list
         systemDisplay.addStudent(s1);
         systemDisplay.addStudent(s2);
@@ -25,6 +24,7 @@ public class Main {
         systemDisplay.addCourse(c1);
         systemDisplay.addCourse(c2);
         systemDisplay.addCourse(c3);
+
 
 //  Enroll sample list
 ////  SEM 2022A

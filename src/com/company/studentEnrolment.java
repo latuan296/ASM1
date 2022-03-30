@@ -132,8 +132,6 @@ public class studentEnrolment {
         if (key.equals("")){
             return "Student not exist";
         }
-
-//       Old
         if (EnrollList.containsKey(semester)){
             HashMap<String,String> oldData = EnrollList.get(semester);
             String oldValue = oldData.get(key);
