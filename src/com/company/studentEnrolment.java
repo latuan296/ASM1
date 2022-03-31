@@ -77,11 +77,11 @@ public class studentEnrolment {
         this.courseList = courseList;
     }
 
-    public HashMap<String, HashMap> getEnrollList() {
+    public HashMap<String,HashMap> getEnrollList() {
         return EnrollList;
     }
 
-    public void setEnrollList(HashMap<String, HashMap> EnrollList) {
+    public void setEnrollList(HashMap<String,HashMap> EnrollList) {
         this.EnrollList = EnrollList;
     }
 
@@ -159,8 +159,8 @@ public class studentEnrolment {
     }
 
 //  Update Student
-    public boolean updateStudent(String idStudent,String a,String update){
-        if (a.equals("1")){
+    public boolean updateStudent(String idStudent,String option,String update){
+        if (option.equals("1")){
             for (Student i: studentList)
                 if (i.getStudentID().equals(idStudent)){
                     i.setStudentName(update);
@@ -168,7 +168,7 @@ public class studentEnrolment {
                     return true;
                 }
         }
-        else if (a.equals("2")){
+        else if (option.equals("2")){
             for (Student i: studentList)
                 if (i.getStudentID().equals(idStudent)){
                     i.setStudentBirthdate(update);
@@ -181,8 +181,8 @@ public class studentEnrolment {
     }
 
 //  Update Course Data
-    public boolean updateCourse(String idCourse,String a,String update){
-        if (a.equals("1")){
+    public boolean updateCourse(String idCourse,String option,String update){
+        if (option.equals("1")){
             for (Course i: courseList)
                 if (i.getCourseID().equals(idCourse)){
                     i.setCourseName(update);
@@ -190,7 +190,7 @@ public class studentEnrolment {
                     return true;
                 }
         }
-        else if (a.equals("2")){
+        else if (option.equals("2")){
             int newCredit = Integer.parseInt(update);
             for (Course i: courseList)
                 if (i.getCourseID().equals(idCourse)){
@@ -372,5 +372,4 @@ public class studentEnrolment {
         return student.getStudentName() + course.getCourseName();
     }
 }
-
 

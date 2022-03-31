@@ -25,7 +25,6 @@ public class Main {
         systemDisplay.addCourse(c2);
         systemDisplay.addCourse(c3);
 
-
 //  Enroll sample list
 ////  SEM 2022A
         systemDisplay.enrol("s3836290","COSC2440","2022A");
