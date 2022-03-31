@@ -159,8 +159,8 @@ public class studentEnrolment {
     }
 
 //  Update Student
-    public boolean updateStudent(String idStudent,int a,String update){
-        if (a == 1){
+    public boolean updateStudent(String idStudent,String a,String update){
+        if (a.equals("1")){
             for (Student i: studentList)
                 if (i.getStudentID().equals(idStudent)){
                     i.setStudentName(update);
@@ -168,7 +168,7 @@ public class studentEnrolment {
                     return true;
                 }
         }
-        else if (a == 2){
+        else if (a.equals("2")){
             for (Student i: studentList)
                 if (i.getStudentID().equals(idStudent)){
                     i.setStudentBirthdate(update);
@@ -181,8 +181,8 @@ public class studentEnrolment {
     }
 
 //  Update Course Data
-    public boolean updateCourse(String idCourse,int a,String update){
-        if (a == 1){
+    public boolean updateCourse(String idCourse,String a,String update){
+        if (a.equals("1")){
             for (Course i: courseList)
                 if (i.getCourseID().equals(idCourse)){
                     i.setCourseName(update);
@@ -190,7 +190,7 @@ public class studentEnrolment {
                     return true;
                 }
         }
-        else if (a == 2){
+        else if (a.equals("2")){
             int newCredit = Integer.parseInt(update);
             for (Course i: courseList)
                 if (i.getCourseID().equals(idCourse)){
@@ -303,7 +303,7 @@ public class studentEnrolment {
                 return outputData;
             }
         }
-        outputData = "Can not found student id " + studentID;
+        outputData = "Can not found student id : " + studentID;
         return outputData;
     }
 
@@ -316,7 +316,7 @@ public class studentEnrolment {
                 return outputData;
             }
         }
-        outputData = "Can not found course id " + courseID;
+        outputData = "Can not found course id : " + courseID;
         return outputData;
     }
 
