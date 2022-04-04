@@ -80,18 +80,18 @@ public class Main {
                 else if(option.equals("2")){
                     System.out.println("Create New Course");
                     System.out.print("Input course ID: ");
-                    String courseID = scanner.next();
-                    System.out.print("Input course name: ");
-                    String courseName = scanner.next();
+                    String courseID = scanner.nextLine();
                     System.out.print("Input course Credit point: ");
                     int courseCredit = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Input course name: ");
+                    String courseName = scanner.nextLine();
                     Course c4 = new Course(courseID,courseName,courseCredit);
                     systemDisplay.addCourse(c4);
                     System.out.println(systemDisplay.getCourseList());
                     System.out.println("Do you want to continue use system ? Press 1 to return menu option OR press any button to Exit");
                     System.out.print("Enter your option: ");
                     String exit = scanner.nextLine();
-                    scanner.nextLine();
                     if (exit.equals("1")){
                         continue;
                     }
@@ -170,8 +170,8 @@ public class Main {
 //  Get system DATA
             } else if (optionNum.equals("4")) {
                 System.out.println("Please choose kind of DATA you want to get: " + "\n" +
-                        " + Press 1 to student information " + "\n" +
-                        " + Press 2 to course information" + "\n" +
+                        " + Press 1 to get student information " + "\n" +
+                        " + Press 2 to get course information" + "\n" +
                         " + Press 3 to get all Students in 1 semester" + "\n" +
                         " + Press 4 to get all Course for 1 student in 1 semester" + "\n" +
                         " + Press 5 to get all Students in 1 course in 1 semester" + "\n" +

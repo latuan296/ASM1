@@ -3,17 +3,17 @@ package com.company;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+
 
 
 public class studentEnrolment {
 
-    private String Semester;
+    private String semester;
     private Student student;
     private Course course;
     private ArrayList<Student> studentList;
     private ArrayList<Course> courseList;
-    private HashMap<String,HashMap> EnrollList;
+    private HashMap<String,HashMap> enrollList;
 
 
 
@@ -24,11 +24,11 @@ public class studentEnrolment {
         this.course = course;
         this.studentList = new ArrayList<Student>();
         this.courseList = new ArrayList<Course>();
-        this.EnrollList = new HashMap<String,HashMap>();
+        this.enrollList = new HashMap<String,HashMap>();
     }
 
     public studentEnrolment(String semester, Student student, Course course) {
-        Semester = semester;
+        semester = semester;
         this.student = student;
         this.course = course;
         this.studentList = new ArrayList<Student>();
@@ -38,11 +38,11 @@ public class studentEnrolment {
 
 // GET & SET
     public String getSemester() {
-        return Semester;
+        return semester;
     }
 
     public void setSemester(String semester) {
-        Semester = semester;
+        semester = semester;
     }
 
     public Student getStudent() {
@@ -78,37 +78,37 @@ public class studentEnrolment {
     }
 
     public HashMap<String,HashMap> getEnrollList() {
-        return EnrollList;
+        return enrollList;
     }
 
     public void setEnrollList(HashMap<String,HashMap> EnrollList) {
-        this.EnrollList = EnrollList;
+        this.enrollList = EnrollList;
     }
 
 
 //  Interface
 //  Add student list
     public boolean addStudent(Student student){
-        if (studentList.contains(student)){
-            System.out.println("Student already in");
-            return false;
+        for (Student s : studentList) {
+            if (s.getStudentID().equals(student.getStudentID())) {
+                System.out.println("ID student is already used ");
+                return false;
+            }
         }
-        else{
-            studentList.add(student);
-            return true;
+        studentList.add(student);
+        return true;
         }
-    }
 
 //  Add course list
     public boolean addCourse(Course course){
-        if (courseList.contains(course)){
-            System.out.println("Course already in");
-            return false;
+        for (Course c : courseList) {
+            if (c.getCourseID().equals(course.getCourseID())) {
+                System.out.println("ID course is already used ");
+                return false;
+            }
         }
-        else{
-           courseList.add(course);
-           return true;
-        }
+        courseList.add(course);
+        return true;
     }
 
 //  Enroll student & Course to each different semester
@@ -132,8 +132,8 @@ public class studentEnrolment {
         if (key.equals("")){
             return "Student not exist";
         }
-        if (EnrollList.containsKey(semester)){
-            HashMap<String,String> oldData = EnrollList.get(semester);
+        if (enrollList.containsKey(semester)){
+            HashMap<String,String> oldData = enrollList.get(semester);
             String oldValue = oldData.get(key);
             if (oldData.containsKey(key) && oldValue.contains(newCourse)){
                 return "You already enroll before";
@@ -141,19 +141,19 @@ public class studentEnrolment {
             else if (oldData.containsKey(key)){
                 String value = oldValue + newCourse;
                 oldData.put(key,value);
-                EnrollList.put(semester,oldData);
+                enrollList.put(semester,oldData);
                 return "Enroll more course success";
             }
             else {
                 oldData.put(key,newCourse);
-                EnrollList.put(semester,oldData);
+                enrollList.put(semester,oldData);
                 return "Enroll Success";
             }
         }
         else {
             HashMap<String,String> newList = new HashMap<>();
             newList.put(key,newCourse);
-            EnrollList.put(semester,newList);
+            enrollList.put(semester,newList);
             return "Enroll Success";
         }
     }
@@ -216,8 +216,8 @@ public class studentEnrolment {
             return "Student not exist";
         }
 
-        if (EnrollList.containsKey(semester)) {
-            HashMap<String, String> studentData = EnrollList.get(semester);
+        if (enrollList.containsKey(semester)) {
+            HashMap<String, String> studentData = enrollList.get(semester);
             if (studentData.containsKey(key)){
                 outputData = studentData.get(key);
                 return outputData;
@@ -234,8 +234,8 @@ public class studentEnrolment {
 //  Get all student in one semester
     public ArrayList<String> getOne(String semester){
         ArrayList<String> outputData = new ArrayList<String>();
-        if (EnrollList.containsKey(semester)){
-            HashMap<String,String> studentData = EnrollList.get(semester);
+        if (enrollList.containsKey(semester)){
+            HashMap<String,String> studentData = enrollList.get(semester);
             for (String i: studentData.keySet()){
                 outputData.add(i);
             }
@@ -251,8 +251,8 @@ public class studentEnrolment {
 //  Get all student in 1 course in 1 semester
     public ArrayList<String> studentsInCourse(String semester, String courseID){
         ArrayList<String> outputData = new ArrayList<String>();
-        if (EnrollList.containsKey(semester)){
-            HashMap<String, String> studentData = EnrollList.get(semester);
+        if (enrollList.containsKey(semester)){
+            HashMap<String, String> studentData = enrollList.get(semester);
             for (String i : studentData.keySet()){
                 if (studentData.get(i).contains(courseID)){
                     outputData.add(i);
@@ -273,23 +273,18 @@ public class studentEnrolment {
     }
 
 //  Get all course in one semester
-    public HashSet<String> courseInSem(String semester){
-        HashSet<String> outputData = new HashSet<>();
-        String data = "";
-        if (EnrollList.containsKey(semester)){
-            HashMap <String,String> courseData = EnrollList.get(semester);
-            for (String i: courseData.keySet()) {
-                data += courseData.get(i);
-            }
-            String[] value = data.split(",");
-            for (int i = 0; i < value.length; i++) {
-                outputData.add(value[i]);
-            }
+    public String courseInSem(String semester){
+        String outputData = "";
+        String error = "";
+        if (enrollList.containsKey(semester)){
+            HashMap <String,String> courseData = enrollList.get(semester);
+            for (String i : courseData.values())
+                outputData = i;
             return outputData;
         }
         else {
-            data = "Can not found semester [" + semester + "] in system data";
-            outputData.add(data);
+            error = "Can not found semester [" + semester + "] in system data";
+            outputData = error;
             return outputData;
         }
     }
@@ -342,12 +337,12 @@ public class studentEnrolment {
         if (key.equals("")){
             return "Student not exist";
         }
-        if (EnrollList.containsKey(semester)){
-            if (EnrollList.get(semester).containsKey(key)){
-                HashMap <String,String> semesterData = EnrollList.get(semester);
+        if (enrollList.containsKey(semester)){
+            if (enrollList.get(semester).containsKey(key)){
+                HashMap <String,String> semesterData = enrollList.get(semester);
                 if (semesterData.get(key).contains(deleteCourse)){
                     String newValue = semesterData.get(key).replace(deleteCourse,"");
-                    EnrollList.get(semester).put(key,newValue);
+                    enrollList.get(semester).put(key,newValue);
                     result = "Delete course success";
                     return result;
                 }
