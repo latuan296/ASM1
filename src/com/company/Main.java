@@ -74,6 +74,7 @@ public class Main {
                         continue;
                     }
                     else {
+                        System.out.println("Good bye. Have a nice day!");
                         break;
                     }
                 }
@@ -96,6 +97,7 @@ public class Main {
                         continue;
                     }
                     else {
+                        System.out.println("Good bye. Have a nice day!");
                         break;
                     }
                 }
@@ -121,6 +123,7 @@ public class Main {
                         continue;
                     }
                     else {
+                        System.out.println("Good bye. Have a nice day!");
                         break;
                     }
                 }
@@ -142,6 +145,7 @@ public class Main {
                         continue;
                     }
                     else {
+                        System.out.println("Good bye. Have a nice day!");
                         break;
                     }
                 }
@@ -165,6 +169,7 @@ public class Main {
                     continue;
                 }
                 else {
+                    System.out.println("Good bye. Have a nice day!");
                     break;
                 }
 //  Get system DATA
@@ -191,6 +196,7 @@ public class Main {
                         continue;
                     }
                     else {
+                        System.out.println("Good bye. Have a nice day!");
                         break;
                     }
                 }
@@ -206,6 +212,7 @@ public class Main {
                         continue;
                     }
                     else {
+                        System.out.println("Good bye. Have a nice day!");
                         break;
                     }
                 }
@@ -214,7 +221,7 @@ public class Main {
                     System.out.println("Get all Students in 1 semester");
                     System.out.print("Input semester: ");
                     String semester = scanner.nextLine();
-                    System.out.println(systemDisplay.getOne(semester));
+                    System.out.println(systemDisplay.getStudentOneSem(semester));
                     System.out.println("Do you want to continue use system ? Press 1 to return menu option OR press any button to Exit");
                     System.out.print("Enter your option: ");
                     String exit = scanner.nextLine();
@@ -222,6 +229,7 @@ public class Main {
                         continue;
                     }
                     else {
+                        System.out.println("Good bye. Have a nice day!");
                         break;
                     }
                 }
@@ -231,7 +239,7 @@ public class Main {
                     String studentID = scanner.nextLine();
                     System.out.print("Input semester: ");
                     String semester = scanner.nextLine();
-                    System.out.println(systemDisplay.getOneData(studentID,semester));
+                    System.out.println(systemDisplay.getStudentDataOneSem(studentID,semester));
                     System.out.println("Do you want to continue use system ? Press 1 to return menu option OR press any button to Exit");
                     System.out.print("Enter your option: ");
                     String exit = scanner.nextLine();
@@ -239,6 +247,7 @@ public class Main {
                         continue;
                     }
                     else {
+                        System.out.println("Good bye. Have a nice day!");
                         break;
                     }
                 }
@@ -257,6 +266,7 @@ public class Main {
                         continue;
                     }
                     else {
+                        System.out.println("Good bye. Have a nice day!");
                         break;
                     }
                 }
@@ -272,6 +282,7 @@ public class Main {
                         continue;
                     }
                     else {
+                        System.out.println("Good bye. Have a nice day!");
                         break;
                     }
                 }
@@ -295,10 +306,12 @@ public class Main {
                     continue;
                 }
                 else {
+                    System.out.println("Good bye. Have a nice day!");
                     break;
                 }
             }
             else {
+                System.out.println("Good bye. Have a nice day!");
                 break;
             }
         }

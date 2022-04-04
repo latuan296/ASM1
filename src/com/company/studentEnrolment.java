@@ -112,7 +112,7 @@ public class studentEnrolment {
     }
 
 //  Enroll student & Course to each different semester
-    public String enrol(String studentID, String courseID, String semester){
+    public String enrol(String studentID, String courseID, String semester) {
         String newCourse = "";
         for (Course i: courseList){
             if (i.getCourseID().equals(courseID)){
@@ -158,7 +158,7 @@ public class studentEnrolment {
         }
     }
 
-//  Update Student
+//  Update Student Data
     public boolean updateStudent(String idStudent,String option,String update){
         if (option.equals("1")){
             for (Student i: studentList)
@@ -204,7 +204,7 @@ public class studentEnrolment {
 }
 
 //  Get all student DATA in one semester (optional)
-    public String getOneData(String studentID, String semester){
+    public String getStudentDataOneSem(String studentID, String semester){
         String outputData = null;
         String key = "";
         for (Student i: studentList){
@@ -232,7 +232,7 @@ public class studentEnrolment {
     }
 
 //  Get all student in one semester
-    public ArrayList<String> getOne(String semester){
+    public ArrayList<String> getStudentOneSem(String semester){
         ArrayList<String> outputData = new ArrayList<String>();
         if (enrollList.containsKey(semester)){
             HashMap<String,String> studentData = enrollList.get(semester);
