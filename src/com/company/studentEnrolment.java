@@ -17,7 +17,6 @@ public class studentEnrolment {
 
 
 
-
 // CONSTRUCTOR
     public studentEnrolment(){
         this.student = student;
@@ -142,7 +141,7 @@ public class studentEnrolment {
                 String value = oldValue + newCourse;
                 oldData.put(key,value);
                 enrollList.put(semester,oldData);
-                return "Enroll more course success";
+                return "Enroll Success";
             }
             else {
                 oldData.put(key,newCourse);

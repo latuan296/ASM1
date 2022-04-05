@@ -7,10 +7,11 @@ public class Main {
 
 
     public static void main(String[] args) {
+
 //  Sample Data
 //  Sample students & course
-        Student s1 = new Student("s3836290", "Le Anh Tuan","29/06/1998");
-        Student s2 = new Student("s3836480","Nguyen Thuy Linh","25/11/2001");
+        Student s1 = new Student("S3836290", "Le Anh Tuan","29/06/1998");
+        Student s2 = new Student("S3836480","Nguyen Thuy Linh","25/11/2001");
         Course c1 = new Course("COSC2440", "Further Programming",12);
         Course c2 = new Course("MATH2081","MATH", 12);
         Course c3 = new Course("ISYS2101","SEPM",12);
@@ -27,14 +28,15 @@ public class Main {
 
 //  Enroll sample list
 ////  SEM 2022A
-        systemDisplay.enrol("s3836290","COSC2440","2022A");
-        systemDisplay.enrol("s3836290","MATH2081","2022A");
+        systemDisplay.enrol("S3836290","COSC2440","2022A");
+        systemDisplay.enrol("S3836290","MATH2081","2022A");
         systemDisplay.enrol("s3836480","COSC2440","2022A");
         systemDisplay.enrol("s3836480","COSC2440","2022A");
 ////  SEM 2022B
-        systemDisplay.enrol("s3836290","ISYS2101","2022B");
-        systemDisplay.enrol("s3836480","ISYS2101","2022B");
-        systemDisplay.enrol("s3836480","MATH2081","2022B");
+        systemDisplay.enrol("S3836290","ISYS2101","2022B");
+        systemDisplay.enrol("S3836480","ISYS2101","2022B");
+        systemDisplay.enrol("S3836480","MATH2081","2022B");
+        System.out.println("Sample Enroll list ");
         System.out.println(systemDisplay.getEnrollList());
 
 
