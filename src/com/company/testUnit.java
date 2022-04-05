@@ -3,7 +3,7 @@ package com.company;
 
 
 public class testUnit {
-    public static void test(String[] args){
+    public static void main(String[] args){
 //      Sample data
         Student s1 = new Student("S3836290", "Le Anh Tuan","29/06/1998");
         Student s2 = new Student("S3836480","Nguyen Thuy Linh","25/11/2001");
@@ -17,6 +17,7 @@ public class testUnit {
         System.out.println(test.getStudentList());
 //  test duplicate adding
         System.out.println(test.addStudent(s1));
+
 
 
 
