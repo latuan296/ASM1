@@ -3,7 +3,7 @@ package com.company;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.HashSet;
 
 
 public class studentEnrolment {
@@ -157,13 +157,14 @@ public class studentEnrolment {
         }
     }
 
-//  Update Student Data
+//  Update Student Data (optional)
     public boolean updateStudent(String idStudent,String option,String update){
         if (option.equals("1")){
             for (Student i: studentList)
                 if (i.getStudentID().equals(idStudent)){
                     i.setStudentName(update);
                     System.out.println("Update name success: ");
+
                     return true;
                 }
         }
@@ -175,11 +176,11 @@ public class studentEnrolment {
                     return true;
                 }
         }
-        System.out.println("Invalid Data");
+        System.out.println("Invalid data input");
         return false;
     }
 
-//  Update Course Data
+//  Update Course Data  (optional)
     public boolean updateCourse(String idCourse,String option,String update){
         if (option.equals("1")){
             for (Course i: courseList)
@@ -198,7 +199,7 @@ public class studentEnrolment {
                     return true;
                 }
         }
-        System.out.println("Invalid data");
+        System.out.println("Invalid data input");
         return false;
 }
 
@@ -250,10 +251,21 @@ public class studentEnrolment {
 //  Get all student in 1 course in 1 semester
     public ArrayList<String> studentsInCourse(String semester, String courseID){
         ArrayList<String> outputData = new ArrayList<String>();
+        String newCourse = "";
+        for (Course i: courseList){
+            if (i.getCourseID().equals(courseID)){
+                newCourse = i.toString();
+            }
+        }
+        if (newCourse.equals("")){
+            outputData.add("Course not exist");
+            return outputData;
+        }
+
         if (enrollList.containsKey(semester)){
             HashMap<String, String> studentData = enrollList.get(semester);
             for (String i : studentData.keySet()){
-                if (studentData.get(i).contains(courseID)){
+                if (studentData.get(i).contains(newCourse)){
                     outputData.add(i);
                 }
             }
@@ -272,18 +284,17 @@ public class studentEnrolment {
     }
 
 //  Get all course in one semester
-    public String courseInSem(String semester){
-        String outputData = "";
+    public HashSet<String> courseInSem(String semester){
+        HashSet<String> outputData = new HashSet<String>();
         String error = "";
         if (enrollList.containsKey(semester)){
             HashMap <String,String> courseData = enrollList.get(semester);
-            for (String i : courseData.values())
-                outputData = i;
+            outputData.addAll(courseData.values());
             return outputData;
         }
         else {
             error = "Can not found semester [" + semester + "] in system data";
-            outputData = error;
+            outputData.add(error);
             return outputData;
         }
     }

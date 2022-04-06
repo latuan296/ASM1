@@ -29,9 +29,9 @@ public class Main {
 //  Enroll sample list
 ////  SEM 2022A
         systemDisplay.enrol("S3836290","COSC2440","2022A");
+        systemDisplay.enrol("s3836480","COSC2440","2022A");
         systemDisplay.enrol("S3836290","MATH2081","2022A");
-        systemDisplay.enrol("s3836480","COSC2440","2022A");
-        systemDisplay.enrol("s3836480","COSC2440","2022A");
+
 ////  SEM 2022B
         systemDisplay.enrol("S3836290","ISYS2101","2022B");
         systemDisplay.enrol("S3836480","ISYS2101","2022B");
