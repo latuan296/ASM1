@@ -47,10 +47,9 @@ public class Main {
             System.out.println("**** Student Enrolment System ****");
             System.out.println("Please choose option you want to use: " + "\n" +
                     " + Press 1 to create new Student OR Course" + "\n" +
-                    " + Press 2 to update Student OR Course data" + "\n" +
-                    " + Press 3 to enroll for student" + "\n" +
-                    " + Press 4 to get Data from system " + "\n" +
-                    " + Press 5 to delete course for student: " + "\n" +
+                    " + Press 2 to enroll for student" + "\n" +
+                    " + Press 3 to get Data from system " + "\n" +
+                    " + Press 4 to delete course for student: " + "\n" +
                     " + Press any button else to Exit System");
             System.out.print("Please enter option that you want: ");
             String optionNum = scanner.nextLine();
@@ -104,57 +103,8 @@ public class Main {
                     }
                 }
             }
-//  Update DATA
-            else if (optionNum.equals("2")) {
-                System.out.print("Update student data press 1 OR update course data press 2: ");
-                String option = scanner.nextLine();
-                if (option.equals("1")){
-                    System.out.println("Update student data");
-                    System.out.print("Input student ID: ");
-                    String studentID = scanner.nextLine();
-                    System.out.print("Input 1 to update name OR 2 to update DOB: ");
-                    String op = scanner.nextLine();
-                    System.out.print("Input update data: ");
-                    String updateData = scanner.nextLine();
-                    systemDisplay.updateStudent(studentID,op,updateData);
-                    System.out.println(systemDisplay.getStudentList());
-                    System.out.println("Do you want to continue use system ? Press 1 to return menu option OR press any button to Exit");
-                    System.out.print("Enter your option: ");
-                    String exit = scanner.nextLine();
-                    if (exit.equals("1")){
-                        continue;
-                    }
-                    else {
-                        System.out.println("Good bye. Have a nice day!");
-                        break;
-                    }
-                }
-                else if (option.equals("2")){
-                    System.out.println("Update Course data");
-                    System.out.print("Input course ID: ");
-                    String courseID = scanner.nextLine();
-                    System.out.print("Input 1 to update course name OR 2 to update credit point: ");
-                    String op = scanner.nextLine();
-                    System.out.print("Input update data: ");
-                    String updateData = scanner.nextLine();
-                    systemDisplay.updateCourse(courseID,op,updateData);
-                    System.out.println(systemDisplay.getCourseList());
-                    System.out.println("Do you want to continue use system ? Press 1 to return menu option OR press any button to Exit");
-                    System.out.print("Enter your option: ");
-                    String exit = scanner.nextLine();
-                    scanner.nextLine();
-                    if (exit.equals("1")){
-                        continue;
-                    }
-                    else {
-                        System.out.println("Good bye. Have a nice day!");
-                        break;
-                    }
-                }
-            }
-
 //  Enroll student
-            else if (optionNum.equals("3")) {
+            else if (optionNum.equals("2")) {
                 System.out.println("Please input follow structure to enroll !");
                 System.out.print("Input student ID: ");
                 String studentID = scanner.nextLine();
@@ -174,8 +124,9 @@ public class Main {
                     System.out.println("Good bye. Have a nice day!");
                     break;
                 }
+
 //  Get system DATA
-            } else if (optionNum.equals("4")) {
+            } else if (optionNum.equals("3")) {
                 System.out.println("Please choose kind of DATA you want to get: " + "\n" +
                         " + Press 1 to get student information " + "\n" +
                         " + Press 2 to get course information" + "\n" +
@@ -290,7 +241,7 @@ public class Main {
                 }
             }
 //  Delete function
-            else if (optionNum.equals("5")) {
+            else if (optionNum.equals("4")) {
                 System.out.println("Input follow structure to delete course data");
                 System.out.print("Input student ID: ");
                 String studentID = scanner.nextLine();

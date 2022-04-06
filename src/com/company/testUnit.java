@@ -1,6 +1,7 @@
 package com.company;
 
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class testUnit {
@@ -46,16 +47,6 @@ public class testUnit {
         System.out.println(test.enrol("S001", "C001", "2022A"));
         System.out.println(test.enrol("S2","C001","2022A"));
         System.out.println(test.enrol("S001","C1","2022A"));
-
-//  test update student & course
-        System.out.println("test function update");
-        System.out.println(test.updateStudent("S002","2","22/2/2222"));
-        System.out.println(test.updateCourse("C003","1","ABC"));
-
-//  test update false
-        System.out.println("Test update false");
-        System.out.println(test.updateStudent("S1","2","22/2/2222"));
-        System.out.println(test.updateCourse("C1","1","ABC"));
 
 //  test get all student data in one sem (getStudentDataOneSem)
         System.out.println("test getStudentDataOneSem ");
@@ -120,6 +111,7 @@ public class testUnit {
 
 //  test student does not exist in true course
         System.out.println(test.deleteCourse("S002","2022C","C003"));
+
 
     }
 }

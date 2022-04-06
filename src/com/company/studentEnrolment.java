@@ -1,6 +1,6 @@
 package com.company;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -156,52 +156,6 @@ public class studentEnrolment {
             return "Enroll Success";
         }
     }
-
-//  Update Student Data (optional)
-    public boolean updateStudent(String idStudent,String option,String update){
-        if (option.equals("1")){
-            for (Student i: studentList)
-                if (i.getStudentID().equals(idStudent)){
-                    i.setStudentName(update);
-                    System.out.println("Update name success: ");
-
-                    return true;
-                }
-        }
-        else if (option.equals("2")){
-            for (Student i: studentList)
-                if (i.getStudentID().equals(idStudent)){
-                    i.setStudentBirthdate(update);
-                    System.out.println("Update birthday success");
-                    return true;
-                }
-        }
-        System.out.println("Invalid data input");
-        return false;
-    }
-
-//  Update Course Data  (optional)
-    public boolean updateCourse(String idCourse,String option,String update){
-        if (option.equals("1")){
-            for (Course i: courseList)
-                if (i.getCourseID().equals(idCourse)){
-                    i.setCourseName(update);
-                    System.out.println("Update course name success");
-                    return true;
-                }
-        }
-        else if (option.equals("2")){
-            int newCredit = Integer.parseInt(update);
-            for (Course i: courseList)
-                if (i.getCourseID().equals(idCourse)){
-                    i.setCourseCredit(newCredit);
-                    System.out.println("Update course credit point success");
-                    return true;
-                }
-        }
-        System.out.println("Invalid data input");
-        return false;
-}
 
 //  Get all student DATA in one semester (optional)
     public String getStudentDataOneSem(String studentID, String semester){
